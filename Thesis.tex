@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage{geometry}
+\geometry{top=3.3cm, bottom=0.65cm, left=3cm, right=3cm}
+%\geometry{margin=4cm}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\author{Adriano Del Vincio}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\AddToShipoutPicture*
+    {\put(100,740){\includegraphics[width = 0.45\textwidth]{Logo/logo_unitn.jpg}}}
+
+\AddToShipoutPicture*
+    {\put(360,735){\includegraphics[width = 0.41\textwidth]{Logo/logounibs.jpg}}} % your logo
+
+
+\vspace*{0.6cm}
+
+\rule{\textwidth}{0.6pt}
+
+\begin{center}
+   \vspace*{1cm}
+
+\textbf{\Large Doctorate of National Interest} \\
+\vspace{0.2cm}
+\textbf{\Large on} \\
+\vspace{0.2cm}
+\textbf{\Large Space Science and Technology}
+
+\vspace{2.5cm}
+{\huge THESIS TITLE}\\
+\vspace{0.4cm}
+{\small SUBTITLE} \\
+{\normalsize \textit{Usually longer and Optional}}\\
+
+\vspace{1.5cm}
+{\huge \bf Adriano Del Vincio}
+\end{center}
+
+\vspace{2cm}
+
+\begin{flushleft}
+{\normalsize Supervisor} \\
+{\hspace{1.5cm}   Prof. Germano Bonomi} \\
+\vspace{0.5cm}
+{University of Brescia} \\
+\vspace{1.5cm}
+%{\normalsize Co-Supervisor}\\
+%{\hspace{1.5cm}  Prof. ...} \\
+%\vspace{0.5cm}
+%{Institution or affiliation}
+\end{flushleft}
+
+\vspace{4cm}
+\rule{\textwidth}{0.6pt}
+
+\vfill % Pushes everything above towards the top
+
+\begin{center}
+    \textbf{\today} % This prints the current date
+\end{center}
+
+\end{titlepage}
+
+
+
+
+%Input the Chapters HERE
+\input{chapter1_introduction}
+
+\input{chapter2_something}
+
+
+
+
+
+
+\end{document}
