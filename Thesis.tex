@@ -1,15 +1,50 @@
 \documentclass[11pt,a4paper]{book}
+
 \usepackage{geometry}
+
 \geometry{top=3.3cm, bottom=0.65cm, left=3cm, right=3cm}
 %\geometry{margin=4cm}
+
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+
+\usepackage{amsmath} \usepackage{commath}
+
 \usepackage{amsfonts}
+
 \usepackage{amssymb}
+
 \usepackage{eso-pic}
+
 \usepackage{graphicx}
+
+\usepackage{siunitx}
+
+\usepackage{braket}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{bibliografia.bib}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[toc,page]{appendix}
+
 \author{Adriano Del Vincio}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\contentof}[1]{\textit{#1}}
+
+\newcommand{\commento}[1]{\textcolor{green}{#1}}
+
+\newcommand{\fcb}[0]{$f_{c \rightarrow b}$}
+\newcommand{\fda}[0]{$f_{d \rightarrow a}$}
 
 
 \begin{document}
@@ -30,20 +65,20 @@
 \begin{center}
    \vspace*{1cm}
 
-\textbf{\Large Doctorate of National Interest} \\
+{\Large Doctorate of National Interest} \\
 \vspace{0.2cm}
-\textbf{\Large on} \\
+{\Large on} \\
 \vspace{0.2cm}
-\textbf{\Large Space Science and Technology}
+{\Large Space Science and Technology}
 
 \vspace{2.5cm}
-{\huge THESIS TITLE}\\
+{\huge \bf Ground State Hyperfine Splitting At The Alpha Experiment At Cern}\\
 \vspace{0.4cm}
-{\small SUBTITLE} \\
-{\normalsize \textit{Usually longer and Optional}}\\
+%{\small SUBTITLE} \\
+%{\normalsize \textit{Usually longer and Optional}}\\
 
 \vspace{1.5cm}
-{\huge \bf Adriano Del Vincio}
+{\huge Adriano Del Vincio}
 \end{center}
 
 \vspace{2cm}
@@ -73,15 +108,25 @@
 
 
 
+\tableofcontents
+
 
 %Input the Chapters HERE
-\input{chapter1_introduction}
+\input{abstract}
 
-\input{chapter2_something}
+\input{chapter1}
 
+\input{chapter2}
 
+\input{chapter3}
 
+\input{chapter4}
 
+\input{chapter5}
+
+\input{appendix}
+
+\printbibliography
 
 
 \end{document}

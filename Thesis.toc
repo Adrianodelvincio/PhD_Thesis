@@ -1,0 +1,35 @@
+\contentsline {chapter}{\textit {Abstract}}{5}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}}{7}{section.1.1}%
+\contentsline {chapter}{\numberline {2}The Alpha Experiment}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Antiproton decelerator facility at CERN (AD)}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The ALPHA apparatus}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The positron Accumulator}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}The ALPHA2 Penning-Malmberg Trap}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Synthesis of Antihydrogen}{9}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Detection of Antimatter}{9}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}The ALPHA2 Silicon Vertex Detector}{9}{subsection.2.6.1}%
+\contentsline {chapter}{\numberline {3}Hyperfine Spitting of The Antihydrogen Ground State}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Hyperfine Structure}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zeeman Effect, Magnetic Field Decay}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Experimental Protocol}{16}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Magnetic Field Profile}{17}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Microvawe System}{17}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Data Analysis And Systematic Uncertainties}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Signal and Background Model Definition}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Simulation}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Maximum Likelihood Fit}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Correction of Correlation between Observables}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Systematic Uncertainties}{21}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Reproducibility}{21}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Bare Function}{21}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Resolution Function}{21}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Data Selection and Binning}{21}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Magnetic Field Drift}{21}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}Error Budget Summary}{21}{subsection.4.5.6}%
+\contentsline {section}{\numberline {4.6}Validation and Cross-Checks of the Analysis}{21}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Results Summary}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Table of Results}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}CPT, outlook}{23}{section.5.2}%
+\contentsline {chapter}{Appendices}{25}{section*.3}%
+\contentsline {section}{\numberline {.1}Calculation of the Fine Structure for the 1s Energy Level}{27}{section.1..1}%
