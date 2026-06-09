@@ -1,16 +1,167 @@
 \chapter{Data Analysis And Systematic Uncertainties}
+This chapter focuses on the statistical and mathematical framework used to analyze the data collected during the 2024 experimental run, related to the hyperfine splitting of the antihydrogen atom. The improvements in trapping efficiency, magnetic field design, colder energy distribution and characterization of the magnetic field drift have all contributed to an improvement of \num{e2} compared to the first observation made by the alpha collaboration in 2017 \cite{ALPHA:2017fsh}.
+In 2024, two complete set of data, with auxiliary measurement as ECR and high statistic control sample have been taken and analyzed. The analysis method is based on a combined fit of the transitions to extract the frequency marker/onset of each transition, and it has been developed with \textit{ROOT} and \textit{RooFit} packages, with a Maximum Likelihood minimization, using the frequentist approach. 
+In a synthetic way, the analysis consists of a fit to the \cb and \da frequency distributions with an empirical lineshape model, common to all repetitions within a given series, but with some parameters which are allowed to differ for the two transitions, followed by a correction for the magnetic field decay since the last reset of the Carlsberg solenoid.
 
-\section{Signal and Background Model Definition}
+ \commento{questa parte da inserire altrove, non qui} Although tempting, these frequency markers are only related to the resonance frequency at a given condition, because of several broadening effects that will be discussed in this chapter. Because of its nature of "differential" measurement, the analysis focuses on identify those frequency markers without claiming anything about the resonance frequency of a given spectra alone. The output of the analysis consist on a common linear fit to the 8 $\times$ 8 frequency markers, correcting for the magnetic field drift and correlation effect to extract the physical quantity.    
+
+\section{Background Model}
+
+In the analysis, a flat distribution for the background is considered. The main source of background is constituted by cosmic event, mainly muons, that are wrongly recorded as annihilation from the Silicon Vertex Detector. The cosmic background has been decrease by employing multi-variable-analysis techniques, that employs information of the event structure to reject background. 
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width = \textwidth]{figures/chapter 4/MVA-punzi.png}
+\caption{MVA scan plot. The cyan curve represents scan of the MVA model varying the selection criteria. The red star is the optimal point corresponding to the minimization of the Punzi figure of merit \cite{punzi2003sensitivitysearchesnewsignals}. The MVA curve is obtained by training the algorithm on data without \Hbar trapped, recording only annihilations from muons, and annihilations recorded during the mixing phase, during which the background is negligible and events are mainly constituted by un-trapped \Hbar}
+\end{figure}
+
+The cosmic background corresponding to the red star is the chosen working point, and the data that will be presented are related to that particular selection criterion. The signal efficiency rate is 75.7(5) \%, and the background is \SI{37.4(7)}{ \milli \hertz}. 
+Although these quoted values are estimated from runs with several thousands recorded events, the actual background during the experimental runs can be different. Due to the presence of electrode heating, a portion of the atoms could annihilate on residual gas. The amount of gas present in the trap is not controlled, hence the background is a free parameter in the analysis, and has not been fixed to the expected value from the MVA selection.
+
+\section{Signal Model Definition}
+
+The signal model has be expressed in terms of a parameter that describes the position of the \cb and \da lineshapes, and acts therefore as a \textit{frequency marker} ($f_o$). The difference of the frequency markers for the \cb and \da transitions, corrected for the magnetic field decay, corresponds to an estimate of the antihydrogen hyperfine splitting frequency $a_{1S}/h = f_o^{(cb)} - f_o^{(da)}$. 
+
+In the analysis model, it is used for the {\it frequency marker} a definition related to the onset of the transition. With respect to previous measurement \cite{ALPHA:2017fsh}, however, some modifications are necessary, to account for the increased $\overline{\mathrm{H}}$ population in each run (which may result in detectable background from anti-atoms escaping the trap for reasons different than microwave-induced spin-flips) and for the increased sensitivity to differences between the \cb and \da lineshapes. 
+
+The lineshape model $f(\cdot)$ for the fit of the experimental data is constructed as the convolution of two functions: a bare function $g(\cdot)$ and a resolution/broadening function $R(\cdot)$:
+\begin{equation}
+\centering
+f \equiv g \otimes R \,.
+\label{eq:conv}
+\end{equation}
+
+The "bare" function is introduced to describe the energy distribution, magnetic field profile and depletion effect which determine the lineshape. It has a well defined onset of the transition, and an exponential decaying right tail. The resolution function has been introduced to describe all those effect that are related to broadening of the resolution conditions, such as magnetic field inhomogeneities, magnetic field fluctuations, Doppler broadening and transit time broadening. 
+The actual shape of $g$ can't be derived directly from first principles, since it would require knowledge of microwave standing wave pattern, actual power delivered to the trap and energy distribution of the atoms. These quantities are not know with enough precision, hence the signal model corresponds to an empirical function which satisfies the following requirements:
+
+\begin{itemize}
+    \item its value is zero for frequency values lower than $f_o$, and strictly positive for frequencies higher than  $f_o$; 
+    \item it features a monotonic rise (corresponding to an increase in the resonant volume as the frequency is increased) between $f_o$ and the maximum of the function;
+    \item it features a monotonic decay (associated to the decreasing antihydrogen population as the scan progresses) after the maximum. 
+\end{itemize}
+
+The "bare" function is described in the following \ref{eq:model1}:  
+
+\begin{equation}
+\centering
+g(\overline{x})=
+\begin{dcases}
+ 0        & \overline{x} < - \sigma (k + 1) \\
+\exp\left(-\frac{1}{2}\right) \times \left[\frac{\overline{x} + \sigma (k + 1)}{\sigma k}\right]^k  & [\overline{x} > - \sigma (k + 1)] \land (\overline{x}<- \sigma) \\
+\exp\left(-\frac{\overline{x}^2}{2\sigma^2}\right)  & (\overline{x} >-\sigma) \land (\overline{x}<0) \\
+\exp\left(-\frac{\overline{x}^2}{2\sigma_r^2}\right) & (\overline{x} >0) \land (\overline{x}< \sigma_r) \\
+\exp\left(-\frac{1}{2}\right)\left[\frac{\overline{x} + \sigma_r(n-1) } {\sigma_rn} \right]^{-n} & \overline{x} > \sigma_r \\
+\end{dcases}
+\label{eq:model1}
+\end{equation}
+
+The onset (our chosen frequency marker) is defined as the minimum value at which the above equation differs from zero, while the function parameters have the following meaning:
+
+\begin{itemize}
+    \item $\overline{x} \equiv x - x_{max}$. Therefore, $\overline{x} = 0$ is the position of the maximum;
+    \item $\sigma$ is the standard deviation for the left-side Gaussian-like component;
+    %    \item $-b\sigma$ represents the connection point between the polynomial rise and the Gaussian;
+    \item $k$ is the degree of the polynomial describing the rise portion; 
+    %\item $r = \sigma \cdot \frac{k + b^2}{b}$ 
+    %    \item $C= \exp(-\frac{b^2}{2})$ ensures the continuity in the function;
+    \item $r = \sigma \cdot (k + 1)$ is the distance (rise lenght) between the onset and the maximum;
+    %\item $a$ describes the weight of the right-side non-Gaussian tail;
+    \item $\sigma_{r}$ is the  standard deviation of the right-side Gaussian core portion, while $n$ describes the power-law right-tail (Crystal Ball function).  
+\end{itemize}
+
+To gain some physical intuition on the model, one can think of the 'bare' function $g$ as describing the lineshape we would observe if the atoms were stationary, the microwave radiation monochromatic, the magnetic field perfectly stable, etc., i.e., if all broadening sources were turned off. 
+
+In this hypothetical case, for an up-ward microwave frequency ramp, the onset would be well defined: it would correspond to the infinitely-large sample-size limit  of the minimum value corresponding to the first significant annihilation count, and would be associated to the lowest value of the magnetic field. In practice, since the experiment is not dealing with stationary atoms and perfect magnetic field, a certain level of broadening is expected.
+
+\subsubsection{The resolution/broadening function}
+
+Simulations show that spin-flip transitions can occur at frequencies lower than the frequency corresponding to the magnetic field minimum, due to effects such as: 
+\begin{itemize}
+    \item fluctuations in the magnetic field;
+    \item width of the microwave radiation in the trap;
+    \item Doppler-shift broadening;
+    \item transit-time broadening;
+    \item power broadening.
+\end{itemize}
+
+Estimating the size of these effects from simulations or calculations is expected to be an easier task than simulating the full lineshape, at least under a set of reasonable simplifying assumptions. Therefore, we describe such broadening effects in the model by convolving the bare function with the resolution function $R$. The parameters of the resolution function are determined from simulations and calculations, and are fixed in the fit to the \Hbar data, i.e., there are no floating parameters associated to the resolution function in the fit to the data. 
+
+Since monotonic upward frequency scans are performed in the experimental runs, the broadening function is one-sided. Its shape and width can be varied to determine systematic uncertainties associated with the assumptions. The simulations were used to test different combination of bare function $g$ and broadening function $R$.
+
+The broadening function might depend on the step in the scan (i.e., might vary with frequency), but we can assume that the only part affecting the zero frequency marker is the one evaluated at the first significant step. 
+
+The broadening may also depend on the population kicked out in the first step, which might in principle differ between the two transitions. % (i.e., there is a dependence on power); 
+
+Even if the two broadening functions were the same, a different underlying bare model would result in a different effect on the {\it frequency marker}, which wouldn't cancel in the difference between the two transitions. 
+
+We can assume different shapes for the broadening function, such as a one-sided Gaussian or a one-sided cusp. A right-sided tail (of negligible width, $t_R = 0.2\,{\rm kHz}$, compared to the frequency step) is included for numerical stability. For a Gaussian we have: 
+\begin{equation}
+\centering
+R(\overline{x})=
+\begin{dcases}
+ \exp\left(-\frac{1}{2}\frac{x^2}{t_{gauss}^2}\right)        & x < 0 \\
+ 0 & x \geq 0\\
+% \exp\left(-\left|\frac{x}{t_R}\right|\right)        & x \geq 0 \\
+\end{dcases}
+\label{GaussR}
+\end{equation}
+while for a one-sided cusp:
+\begin{equation}
+\centering
+R(\overline{x})=
+\begin{dcases}
+ \frac{1}{t_{cusp}}\exp\left(-\frac{x}{t_{cusp}}\right)        & x < 0 \\
+0        & x \geq 0 \\
+\end{dcases}
+\label{CuspR}
+\end{equation}
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width = \textwidth]{figures/chapter 4/Model_vs_data.png}
+\caption{Lineshape of the first repetition of the high field dataset. The blue line represents the \textit{bare} model with best fit parameters. The red line represents the \textit{bare} model convoluted with the resolution function (asymmetric gaussian, with \SI{10}{\kilo\hertz}), the black vertical dotted line is the frequency marker or onset position.}
+\end{figure}
+
+
 
 \section{Simulation}
 
+\contentof{In this section explain the simulation and how it has been used to estimate the systematic. The shown the plot of the simulation lineshapes and describe the limits of the simulation.}
+
+Simulation of the experiment, involving antihydrogen motion and its interaction with microwaves have been conducted to inform the model parameters and study some of the systematic of the measurement. The simulation reflect the experimental protocol following the magnets manipulation and the frequency ramps. The magnetic field has been tuned using ECR data, the ones shown in \ref{fig:flatfield}
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/FrancisSimulation_2024.png}
+\caption{ Simulation of microwave induced annihilation for different electric field amplitudes (in legend reported as \SI{}{\volt\per\meter}). The simulation does not account for differences in the standing wave pattern for the \cb and \da transitions; consequently the simulated the \da is essentially identical to the \cb one, aside from the frequency offset corresponding to the splitting.}
+\end{figure}
+
+The simulation can not describe the experiment with required precision because of the lack of knowledge of the magnetic field off-axis and the unknown microwave field pattern in the trap. Therefore the simulation has been used to inform the signal model parameters, such as degree of the power-law rise of the lineshape. Different lineshapes corresponding to different microwave power are available, and have been fitted with the current signal model. 
+
 \section{Maximum Likelihood Fit}
 
-\section{Correction of Correlation between Observables}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Example-of-spectra.png}
+\caption{Result of the maximum likelihood fit on repetition 3 for the set at \SI{1.03}{\tesla}.}
+\end{figure}
+
+
+\section{Correction of Correlation between Observable}
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width =  \textwidth]{figures/chapter 4/correlation_matrix_2026-05-28 102938_s8.png}
+\caption{Correlation Matrix of the Maximum Likelihood fit for the set of data at \SI{1.03}{\tesla}}
+\end{figure}
+
 
 \section{Systematic Uncertainties}
 
-\subsection{Reproducibility}
+\subsection{Shape variations}
 
 \subsection{Bare Function}
 
