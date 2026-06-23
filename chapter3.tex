@@ -115,7 +115,7 @@ The application of $S_{z}$ acts to "mix" the subspace spanned by the two vectors
 \end{bmatrix}
 \end{equation}
 
-In this notation, it's immediate to notice that the states $\ket{F = 1, m_f = 1}$ and $\ket{F = 1,m_f = -1}$ are still eigenvector of the matrix. So the eigenvalue/energy levels are:
+In this notation, it's immediate to notice that the states $\ket{F = 1, m_f = 1}$ and $\ket{F = 1,m_f = -1}$ are still eigenvector of the matrix. So the energy levels are:
 
 \begin{align}
 \ket{F = 1, m_f = 1} &= \ket{+,+} \rightarrow \dfrac{A \hbar^2}{4} + \hbar \omega_0 = \dfrac{A \hbar^2}{4} - \hbar \abs{\omega_0} \\ \ket{F = 1, m_f = -1} &= \ket{+,+} \rightarrow \dfrac{A \hbar^2}{4} - \hbar \omega_0 = \dfrac{A \hbar^2}{4} + \hbar \abs{\omega_0}
@@ -156,7 +156,7 @@ it is important to highlight that this relation is valid only if the two transit
 \label{fig:ECR_term_bdrift}
 \end{figure}
 
-\section{Experimental Protocol}
+\section{Experimental Protocol} \label{sec:Protocol}
 \contentof{Description of the experimental protocol: stacking, measurement scan from lower to higher frequencies ecc. Things to mention are: 
 \begin{itemize}
 \item destructive measurement: depletion effects
@@ -175,7 +175,7 @@ To probe the \textbf{cb} and \textbf{da} transitions, microwave light is deliver
 The transitions are probed by injected microwave light inside the trap cavity at varying frequencies, in increasing steps of \SI{5}{\kilo \hertz} and \SI{8}{\second} time duration. By varying the frequency, the microwave light can drive a positron spin-flip of an atom, modifying its quantum state. Once an atom ends up in an un-trappable state it annihilate on the trap wall, and the annihilation products (typically pions) are then detected by the Silicon Vertex Detector (SVD) surrounding the trap electrodes. By properly tuning the frequency of the microwave light, it's possible to select the \cb or the \da transition, and record different spectra from which physical quantities can be inferred.
 The protocol used during the 2024 data taking comprises a number of 48 frequency steps, (for total of \SI{240}{\kilo \hertz}), followed by an high power phase, named "clearing", consisting of 16 frequency steps of the same duration, during which residual \textbf{c} state or \textbf{d} states atoms that did not undergo transition are removed. Strictly speaking, the duration of spectroscopy measurement was \SI{512}{\second}, during which several hundreds/thousands atoms are recorded.
 
-\subsection{Procedure of Spectroscopy Experiment}
+\subsection{Protocol of Spectroscopy Experiment} \label{Protocol-of-experiment}
 To measure the \fcb and \fda transition frequency, approximately 1400-1600 atoms are synthesize and trapped from repeating positron/antiproton mixing cycles over a period of $\approx$ \SI{1}{\hour}. During each mixing cycle, a total of 90/100 atoms are trapped in the \SI{0.5}{\kelvin} magnetic potential well. During the microwave experiment a single \cb followed by a \da spectra are measured. To excite the \da transition, the microwave frequency scan start at \SI{+1420390}{\kilo \hertz}  above the starting frequency of the previous \cb transition. 
 A pause lasting 300s divides the two spectroscopy phases, during which the microwave system is switched off to cool down the electrodes of the trap, with the goal of avoiding to deteriorate the vacuum conditions inside the trap cavity. A \fcb and \fda measurement constitutes a single replica, which has been repeated consecutively 8 times. At the end of the 8 repetitions, an high statistic repetition, with several thousands of atoms, has been measured, and used as a 'control" sample for systematic studies. This procedure has been repeated twice, yielding two datasets that differ in the magnetic field setting used for the spectroscopy. One dataset was taken at \SI{1.03}{\tesla} and the other at \SI{1.07}{\tesla} \commento{explain why this choice}. These settings correspond to different on-axis field minima, achieved by adjusting the target current in the Carlsberg solenoid. An additional difference is that a high statistic measurement, performed before the 8 standard repetitions, was included only for the series at low magnetic field. The experimental procedure can be summarize as follows:
 

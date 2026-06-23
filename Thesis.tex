@@ -2,12 +2,13 @@
 
 \usepackage{geometry}
 
-\geometry{top=3.3cm, bottom=0.65cm, left=3cm, right=3cm}
+\geometry{top=3.3cm, bottom=3.3cm, left=3cm, right=3cm}
 %\geometry{margin=4cm}
 
 \usepackage[utf8]{inputenc}
 
 \usepackage{amsmath} \usepackage{commath}
+\usepackage{mathtools}
 
 \usepackage{amsfonts}
 
@@ -17,9 +18,13 @@
 
 \usepackage{graphicx}
 
+\usepackage{rotating}
+
 \usepackage{siunitx}
 
 \usepackage{braket}
+
+\usepackage{multirow}
 
 \usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{bibliografia.bib}
@@ -43,8 +48,14 @@
 
 \newcommand{\commento}[1]{\textcolor{green}{#1}}
 
-\newcommand{\fcb}[0]{$f_{c \rightarrow b}$}
-\newcommand{\fda}[0]{$f_{d \rightarrow a}$}
+\newcommand{\nullo}[1]{ }
+
+\newcommand{\fcb}[0]{$f_{c \rightarrow b}$ }
+\newcommand{\fda}[0]{$f_{d \rightarrow a}$ }
+\newcommand{\cb}[0]{\textbf{cb} }
+\newcommand{\da}[0]{\textbf{da} }
+\newcommand{\Hbar}[0]{ $\overline{H}$ }
+\newcommand{\likelihood}{$\mathcal{L}$}
 
 
 \begin{document}
@@ -86,6 +97,8 @@
 \begin{flushleft}
 {\normalsize Supervisor} \\
 {\hspace{1.5cm}   Prof. Germano Bonomi} \\
+{\normalsize Co-Supervisor} \\
+{\hspace{1.5cm} Dott. Simone Stracka} \\ 
 \vspace{0.5cm}
 {University of Brescia} \\
 \vspace{1.5cm}
@@ -106,6 +119,8 @@
 
 \end{titlepage}
 
+
+\chapter*{Ringraziamenti}
 
 
 \tableofcontents

@@ -50,6 +50,37 @@
       \verb 10.1038/nature23446
       \endverb
     \endentry
+    \entry{Akbari:2025mli}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=32a35fa26ed3d4338a45499232741c6e}{%
+           family={Akbari},
+           familyi={A\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{629d468b124c61b57dd655d538938df8}
+      \strng{fullhash}{629d468b124c61b57dd655d538938df8}
+      \strng{bibnamehash}{629d468b124c61b57dd655d538938df8}
+      \strng{authorbibnamehash}{629d468b124c61b57dd655d538938df8}
+      \strng{authornamehash}{629d468b124c61b57dd655d538938df8}
+      \strng{authorfullhash}{629d468b124c61b57dd655d538938df8}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Commun.}
+      \field{number}{1}
+      \field{title}{{Be$^{+}$ assisted, simultaneous confinement of more than 15000 antihydrogen atoms}}
+      \field{volume}{16}
+      \field{year}{2025}
+      \field{pages}{10106}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41467-025-65085-4
+      \endverb
+    \endentry
     \entry{QuantumMechanics}{book}{}
       \name{author}{2}{}{%
         {{hash=afb58a552bd3c648f9aebc94418f1402}{%
@@ -320,6 +351,38 @@
       \endverb
       \verb{url}
       \verb http://dx.doi.org/10.1103/PhysRevLett.98.111301
+      \endverb
+    \endentry
+    \entry{punzi2003sensitivitysearchesnewsignals}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=59e43ad9f2e2e56f0f9d698334048c72}{%
+           family={Punzi},
+           familyi={P\bibinitperiod},
+           given={Giovanni},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \strng{fullhash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \strng{bibnamehash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \strng{authorbibnamehash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \strng{authornamehash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \strng{authorfullhash}{59e43ad9f2e2e56f0f9d698334048c72}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{physics.data-an}
+      \field{eprinttype}{arXiv}
+      \field{title}{Sensitivity of searches for new signals and its optimization}
+      \field{year}{2003}
+      \verb{eprint}
+      \verb physics/0308063
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/physics/0308063
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/physics/0308063
       \endverb
     \endentry
   \enddatalist
