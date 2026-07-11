@@ -2,75 +2,69 @@
 
 \section{Table of Results}
 
-\begin{table}[!h]																			
-\small 
+\begin{table}[h]
 \centering
-\scalebox{0.8}{
-\begin{tabular}{l||r|l||r|l||r|l}																			
-%\hline
-%\multicolumn{7}{c}{GLS COMBINED LINEAR FIT} \\
-\hline								\hline		
-\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{Series 7 (kHz)}} & \multicolumn{2}{c||}{\textbf{Series 8 (kHz)}} & \multicolumn{2}{c}{\textbf{Combination}} \\																			
-	& $	\nu^{blind}_{\overline{HF}}	\pm	\sigma$ & $	\bf{\Delta}$ & $ \nu^{blind}_{\overline{HF}} \pm	\sigma$ & $\bf{\Delta}$ & $ \nu^{blind}_{\overline{HF}} \pm	\sigma$ & $\bf{\Delta}$ \\
-\hline																			
-\hline												 
-{\it Nominal (``common fit" linear GLS)} & & & & & & \\							
-$k=2$, $t_{gauss}^{cb}=10$, $t_{gauss}^{da}=10$  & {\bf \textcolor{blue}{ 10.83 $\pm$ 1.7  }}  & $ - $  & { \bf \textcolor{blue}{8.98 $\pm$ 1.5}}  & $ - $ & {\bf \textcolor{blue}{9.79 $\pm$ 1.1} }  & $ - $\\
-\hline 
-\hline 
-{\it Lineshape reproducibility} & & & & & & \\
-Nominal with g from post	                     & $ 16.48 \pm 0.4 $ & $ (5.65)	 $    & $-4.98 \pm 0.4 $ & $ (-13.96) $       & $4.41 \pm 0.3$ & $-5.38$ \\
-{\it $\Delta$ is divided by 2 (see text)}        &                   & $ {\bf 2.8 } $ &                  & ${\bf -7.0}$     &                & ${\bf -2.7}$ \\
-\hline 
+\begin{tabular}{l|cc|cc}
 \hline
-{\it Bare function} & & & & & & \\
-{\it (choice)}      & & & & & & \\
-Alt. bare model, $k=2$, $t_{cusp}=6$	          & $ 11.28 \pm 1.4$ & ${\bf 0.5}$    & $9.65	\pm 0.4$ & ${\bf 0.7}$      &  $10.36 \pm 0.4$& ${\bf 0.6}$ \\
 \hline
-{\it (parameters)} & & & & & & \\
-$k=1$& $8.32  \pm 1.0 $       & $ {\bf -2.5}$     & $9.31 \pm 0.8 $    & $ 0.3 $     & $8.88 \pm 0.6$ & ${\bf -0.9}$ \\
-$k=5.4$ & $10.70 \pm 3.8 $    & $ -0.1$           & $10.01 \pm 3.2 $   & {\bf  1.0 } & $10.31 \pm 2.4$& $0.5$  \\
-\nullo{$k=5.4$, $t_{gauss}^{cb}=10$, $t_{gauss}^{da}=10$}	max uncertainty increase & ($\sqrt{3.8^{2}-1.7^{2}})$ & {\bf 3.4 } & ($\sqrt{3.2^{2}-1.5^{2}})$ & {\bf 3.0} & ($\sqrt{2.4^{2} - 1.1^{2}}$) & {\bf 2.1}\\
-\hline
+\textbf{Residuals (kHz)} & \textbf{Series 7} (\cb)  &  \textbf{Series 7} (\da) & \textbf{Series 8} (\cb) &  \textbf{Series 8} (\da) \\ 
 \hline 
-{\it Resolution function} & & & & & & \\
-{\it (choice)} & & & & & & \\
-$t_{cusp}^{cb}=t_{cusp}^{da}=5.1$	    & $11.15 \pm 1.7 $ & ${\bf 0.3 } $ & $8.99 \pm 1.4 $ & $ 0.0$       & $ 9.94 \pm 1.1$ & $0.2$ \\
-$t_{gauss}^{cb}=t_{gauss}^{da}=13.6$	& $11.00 \pm 1.9 $ & $ 0.2 $       & $9.22 \pm 1.6 $ & $ 0.2 $      & $10.00 \pm 1.2$ & $0.2$ \\
-$t_{gauss}^{cb}=t_{gauss}^{da}=7.0$	    & $10.9  \pm 1.6 $ & $ 0.1 $       & $9.62 \pm 1.4 $ & $ {\bf 0.6}$ & $9.83  \pm 1.1$ & ${\bf 1.1}$  \\
-\hline
-{\it (frequency marker)} & & & & & & \\
-$t_{gauss}^{cb}=10$, $t_{gauss}^{da}=8$	 & $7.64 \pm 1.7 $   & $ -3.2$      & $5.87 \pm 1.5 $   & $ -3.1$       & $6.64 \pm 1.1$ & $-3.2$ \\
-$t_{gauss}^{cb}=10$, $t_{gauss}^{da}=12$ & $14.34 \pm 1.8 $  & ${\bf 3.5 }$ & $12.35 \pm 1.5 $  & $ 3.4$        & $13.22 \pm 1.2$& ${\bf 3.4}$  \\
-$t_{gauss}^{cb}=8$, $t_{gauss}^{da}=10$	 & $13.75 \pm 1.7 $  & $ 2.9 $      & $12.45 \pm 1.4 $  & $ {\bf 3.5 }$ & $13.02 \pm 1.1$& $3.2$  \\
-$t_{gauss}^{cb}=12$, $t_{gauss}^{da}=10$ & $7.43 \pm 1.8 $   & $ -3.4 $     & $5.74 \pm 1.5 $   & $ -3.2$       & $6.48 \pm 1.2$ & $-3.3$ \\
-$t_{gauss}^{cb}=t_{gauss}^{da}=0$        & $11.97 \pm 1.6 $  & $ 1.1$       & $9.89 \pm 1.3 $   & $0.9 $        & $10.80 \pm 1.0$& $1.0$   \\
+$\Delta t$ (s) & \multicolumn{2}{c|}{812.4} & \multicolumn{2}{c}{812.4} \\
+\hline \hline 
+$m_{common}$ (kHz/h) & \multicolumn{2}{c|}{$-75.64 \pm 0.05$} & \multicolumn{2}{c}{$-72.82 \pm 0.04$} \\
 \hline 
-\hline
-{\it B-drift} & & & & & & \\	
-{\it (fit procedure)} & & & & & & \\	
-``split'' linear                           & $8.49 \pm 1.7$ & ${\bf -2.3}	$& $9.51 \pm 1.5$ & $ {\bf +0.5}	$& $9.06 \pm 1.1$ & ${\bf -0.7}$ \\
-\hline 
-{\it (long time scale linearity)} & & & & & & \\	
-``split'' linear vs. ``split'' GPR         &  $8.24 \pm 1.7$  & ${\bf -0.3}	$&$9.43 \pm 1.5$   & $ {\bf -0.1}	$& $8.91 \pm 1.1$ & ${\bf -0.2}$ \\
-\hline 
-{\it (short time scale drift)} & & & & & & \\	
-2023 specific data & N/A & ${\bf 1.1} $ & N/A & $ {\bf 1.1} $ & N/A & $ {\bf 1.1} $ \\
-\hline
-\hline 
-{\it Data selection and binning} & & & & & & \\
-Annihilation time shifted by 30 ms	       & $10.84 \pm 1.7 $  & $0.0$ &  $8.98 \pm 1.5 $ & $	0.0	$ & $ 9.79 \pm 1.1$  & $ - $\\
-Binning                                    & N/A & ${\bf 2.0}$ & N/A   & ${\bf 2.0 }	$ & N/A  &  ${\bf 2.0 }$\\
-\hline
-\hline 
-{\it Cross checks} & & & & & & \\
-Nominal without $\mu$w transition veto	   & $10.93 \pm 1.7 $  & $ 0.1 $    & $8.89 \pm 1.5 $  & $ -0.1 $ & $ 9.78 \pm 1.1$  & $ - $\\
+r0 & $ -16.4 \pm 1.5 $ & $ -15.8 \pm 1.5 $ & $ 6.8 \pm 1.2 $ & $ 0.9 \pm 1.2 $ \\
+r1 & $ -0.3 \pm 1.5 $ & $ -0.9 \pm 1.5 $ & $ 6.0 \pm 1.2 $ & $ 3.3 \pm 1.2 $ \\
+r2 & $ 9.9 \pm 1.5 $ & $ 6.8 \pm 1.5 $ & $ -2.4 \pm 1.2 $ & $ -5.1 \pm 1.2 $ \\
+r3 & $ 10.3 \pm 1.5 $ & $ 3.3 \pm 1.5 $ & $ -11.6 \pm 1.2 $ & $ -1.5 \pm 1.2 $ \\
+r4 & $ 3.9 \pm 1.5 $ & $ 8.9 \pm 1.5 $ & $ -9.7 \pm 1.2 $ & $ -8.3 \pm 1.2 $ \\
+r5 & $ -0.9 \pm 1.5 $ & $ -2.2 \pm 1.5 $ & $ -0.3 \pm 1.2 $ & $ -4.1 \pm 1.2 $ \\
+r6 & $ -2.0 \pm 1.5 $ & $ -7.5 \pm 1.5 $ & $ 3.1 \pm 1.2 $ & $ 9.3 \pm 1.2 $ \\
+r7 & $ -0.0 \pm 1.5 $ & $ -10.7 \pm 1.5 $ & $ 5.7 \pm 1.2 $ & $ 2.9 \pm 1.2 $ \\
+\hline \hline
+$m_{split}$ (kHz/h) & $-75.3 \pm 0.1$  & $-75.9 \pm 0.1$ & $-73.0 \pm 0.1$ & $-72.6 \pm 0.1$\\
+%$m_{da}$ (kHz/h) & &  & $-72.6 \pm 0.1$ & $-72.6 \pm 0.1$ \\
+%$m_{avg}$ (kHz/h) & $-75.6 \pm 0.1$   & $-75.6 \pm 0.1$ & $-72.8 \pm 0.1$ & $-72.8 \pm 0.1$ \\
 \hline
 \hline
 \end{tabular}
-}
-\caption{Results of the nominal maximum likelihood fit. {\bf \textcolor{red}{The	results are blind}} (see equation \ref{eq:BlindtoUnblind}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
-\label{tab:results}}								
+\caption{$B$-drift correction parameters and residuals from the common linear fit
+\label{tab:resultsBdrift}}
 \end{table}
+
+
+\subsection{Uncertainty Table}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{r|c|c|c}
+\textbf{Source}  & \textbf{Series 7}  (kHz) &  \textbf{Series 8}  (kHz) & \textbf{Combination}\\
+\hline \hline
+%\textbf{Statistical} & \textbf{-} & \textbf{-} & \textbf{-}\\
+%\hline \hline
+Line-shape reproducibility                & 2.8 & 7.0 & 2.7\\
+\hline
+Bare function ({\it choice})                   & 0.5 & 0.7 & 0.6\\
+Bare function ({\it parameters})               & 2.5 & 1.0 & 0.9\\
+Bare function ({\it uncertainty increase})     & 3.4 & 3.0 & 2.1\\
+\hline
+Resolution function ({\it choice})             & 0.3 & 0.6 & 1.1\\
+Resolution function ({\it frequency marker})   & 3.5 & 3.5 & 3.4\\
+\hline
+B-drift ({\it fit procedure})                            & 2.3 & 0.5 & 0.7\\
+%\hline
+B-drift ({\it long time scale linearity})                  & 0.3 & 0.1 & 0.2\\
+%\hline
+B-drift ({\it short time scale linearity}) & 1.1 & 1.1 & 1.1\\
+\hline
+Data selection and binning               & 2.0 & 2.0 & 2.0\\
+\hline
+\hline
+\textbf{Total systematic}                & 7.0 & 8.8 & 5.6\\
+\end{tabular}
+\caption{Summary of the uncertainties associated to the measurement of the hyperfine splitting.
+\label{tab:syst}}
+\end{table}
+
 
 \section{CPT, outlook}
