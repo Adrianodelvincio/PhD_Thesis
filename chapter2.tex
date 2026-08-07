@@ -2,27 +2,93 @@
 
 \section{Antiproton decelerator facility at CERN (AD)}
 
+The CERN Antiproton Decelerator (AD) is the dedicated facility for low-energy antiproton physics and, together with ELENA, constitutes the accelerator infrastructure underlying current antimatter precision experiments. Its development should be viewed in continuity with the earlier LEAR program (1982–1996), where key techniques for antiproton deceleration, beam cooling, and precision measurements were established. Following LEAR’s shutdown, the AD was commissioned in 1999 to provide a reproducible and experiment-oriented source of antiprotons at energies compatible with trapping and atomic-physics methods. In the standard production chain, primary protons from the Proton Synchrotron are directed onto a fixed target; the secondary antiprotons are collected and subsequently decelerated through staged cycles with cooling to reduce emittance and momentum spread prior to extraction.
+
+A substantial extension of this scheme was introduced with ELENA (Extra Low ENergy Antiproton ring), integrated into the AD complex in the late 2010s and used for physics operation in the early 2020s. ELENA further decelerates antiprotons from the AD extraction energy down to approximately 100 keV and improves the transverse and longitudinal beam characteristics relevant for capture in Penning traps and antihydrogen formation apparatuses. Operationally, this stage reduces losses in degraders, increases trapping efficiency, and enables more effective sharing of antiproton delivery across multiple experimental zones.
+
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[width = 0.75\textwidth]{figures/chapter 2/Overview-on-the-AD-ELENA-facility-The-AD-with-a-circumference-of-183-m-constrains-the.png}
+\caption{Scheme of the Antimatter Factory facility, with the Antiproton decelerator and the ELENA ring. 7 experiment are currently operating, with ALPHA experimental area in the right side of the diagram.}
+\end{figure}
+
+The historical evolution of the facility is directly reflected in the scientific output of the AD era. Early AD operation enabled the first production of cold antihydrogen (ATHENA and ATRAP, 2002). Subsequent experiments established trapped-antihydrogen techniques and high-precision spectroscopy (notably in the ALPHA and ASACUSA programs), while complementary Penning-trap measurements (e.g., BASE) provided stringent comparisons of antiproton and proton properties, including charge-to-mass ratio and magnetic moment. In parallel, antiprotonic-atom studies, methodologically connected to the LEAR tradition, continued to contribute to precision bound-state tests. More recently, dedicated experiments (AEgIS, GBAR, ALPHA-g) have extended the scope of the AD program to gravitational observables of neutral antimatter. In this sense, the AD/ELENA complex is not merely a beam-delivery system, but a structured platform that links accelerator performance parameters (energy, emittance, duty cycle, and extraction conditions) to the achievable precision and systematic control of contemporary antimatter measurements.
+
 \section{The ALPHA apparatus}
+
+The ALPHA (Antihydrogen Laser Physics Apparatus) is one of the 7 experiment located at the antimatter factory facility at Cern. Alpha focuses on antihydrogen physics, and aims to measure energy levels of the antihydrogen atoms, comparing antihydrogen with hydrogen, as well as gravitational acceleration measurement on antimatter. The Alpha apparatus, whose schematic overview is shown in figure \ref{fig:AlphaSchematicOv}
+
+\begin{sidewaysfigure}[hp]
+\centering
+\includegraphics[width = \textwidth]{figures/chapter 2/Full_ALPHA_annotated.pdf}
+\caption{Schematic overview of the ALPHA apparatus. The antiprotons are received from the antiproton decelerator beam-line, that is connected to the experiment from the left side (Upstream). The positron plasma comes from a radioactive source from the right side of the image. The two section of the experiment are clearly visible: the vertical Alpha-g apparatus, to measure gravitational acceleration on antimatter, and the ALPHA-2 apparatus, designed for spectroscopy.  This image is a reproduction from thesis \cite{Singh:2025uuo }}.
+\label{fig:AlphaSchematicOv}
+\end{sidewaysfigure}
+
+is designed to synthesize, by manipulating antiproton and positron plasma, antihydrogen atoms, that are confined by the interaction of the magnetic momentum with an external magnetic field ( $\approx$ \SI{ 1 }{\tesla} ), provided by the main superconducting solenoid and several mirror coils. The antihydrogen synthesis is achieved by manipulating antiproton and positrons plasma with a set of Penning-Malmberg traps, which are constituted by electrodes that can be controlled independently, and are used to design electric potential for plasma manipulation. In the following section, a general overview of the experiment section and how antihydrogen is synthesized is presented, with particular focus on the implication for the measurement that is the topic of this thesis.
 
 \section{The positron Accumulator}
 
+\section{The Catching Trap}
+
 \section{The ALPHA2 Penning-Malmberg Trap}
 
-\begin{figure}[hbtp]
+\begin{figure}[!hbtp]
 \centering
 \includegraphics[width=\textwidth]{figures/Bfield_with_tramscheme_draftpaper.png}
-\caption{•}
+\caption{Scheme of the ALPHA2 Penning–Malmberg trap (top) and on-axis magnetic field profile for axial confinement of the antihydrogen atoms (bottom).}
 \label{fig:TrapScheme}
 \end{figure}
 
-\subsection{Electron Cyclotron Resonance Technique (ECR)}
+\newpage
 
+\subsection{Berillium Cooling}
+
+\section{Electron Cyclotron Resonance Technique (ECR)}
+
+The ECR (Electron Cyclotron Resonance) is a powerful sensing technique, developed in the alpha collaboration, to measure the on-axis magnetic field in the atom trap. This technique has been developed in 2014 \cite{Amole:2014lna} and refined \textit{Hunter et al} \cite{Hunter_2020}, and exploit the interaction between a small electron plasma and the external magnetic field, combined with microwave radiation injected into the trap, to determine the magnetic field magnitude at a given axial position. Accurate measurements of the magnetic field are required for precision measurements of the atomic spectra as well as the gravitational acceleration of antihydrogen in ALPHA-g.
+
+The measurement relies on a Penning--Malmberg trap, in which a large electron plasma reservoir ($2$--$3\times10^{7}$ electrons) is first prepared and stabilized in temperature, density and particle number via strong-drive regime evaporative cooling (SDREVC). Small target plasmas, containing as few as $N_T \sim 1500$ electrons, are then repeatedly extracted from the reservoir by manipulating the electrode potentials, moved to a dedicated heating well, and further evaporatively cooled (see figure \ref{fig:SchemeECR}). This reservoir-based approach allows more than 100 target plasmas to be produced from a single loading of the electron source, enabling a complete frequency scan in about one minute and avoiding the systematic drifts associated with repeated source operation.
+
+Each target plasma, confined in a magnetic field $B\hat{z}$, is illuminated with a microwave pulse (typically $100\,\mathrm{ms}$ long) whose frequency $F$ is swept across a range of values. When $F$ approaches the electron cyclotron frequency $f_c = eB/2\pi m_e$, the plasma absorbs energy from the microwave field and is heated. The resulting plasma temperature is measured destructively: the downstream confinement potential is slowly lowered at a fixed rate, and the arrival rate of the escaping electrons at a microchannel plate (MCP) detector is recorded. Since the most energetic electrons escape first as the barrier is lowered, the time history of the MCP signal directly encodes the plasma temperature, which is extracted through a fit to the expected escape-rate model.
+
+A scan of $T$ versus $F$ typically reveals not a single resonance but a series of heating peaks, spaced by the electron axial bounce frequency $f_z$ and further split into subpeaks separated by the plasma (magnetron) rotation frequency $f_r$. These sidebands arise because the oscillating electron motion in the trapping well and its slow rotation around the trap axis modulate the microwave field seen by the electron, shifting the resonance condition away from the bare cyclotron frequency. Among these substructures, the $l=-2$ subpeak of the central ($m=0$) resonance is identified as the one whose frequency is, to first order, independent of both the bounce and rotation frequencies, and is therefore taken as the true cyclotron resonance used to extract $B$ through inversion of $B = (2\pi m_e/e)\,f_c$.
+
+Using this method, ALPHA reports absolute magnetic field measurements with an accuracy better than $1\,\mathrm{ppm}$, and a relative precision of $26\,\mathrm{ppb}$ when combining several bounce-frequency scans, dominated respectively by environmental field drifts (of thermal origin, linked to the electron source) and by residual plasma-charge and finite-temperature systematic shifts.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 2/ECR-scheme.png}
+\caption{Scheme of ALPHA-2 Penning-Malmberg Trap. The figure is reproduced from \cite{Hunter_2020}}
+\label{fig:SchemeECR}
+\end{figure}
+
+The ECR technique is actually used in the measurement both for designing the magnetic trapping potential for synthesis of antihydrogen and spectroscopy in ALPHA-2, and furthermore allows to keep track of magnetic field changes by repeating ECR measurement in a time series. 
 
 \section{Synthesis of Antihydrogen}
 
+
 \section{Detection of Antimatter}
+
+The detection of antimatter in the ALPHA2 experiment is made possible with silicon vertex detector, designed for detection of the of an annihilation once an antihydrogen atom or an antiproton hit the electrodes of the trap. The annihilation products are mainly charged pions $\pi^{\pm}$, and by reconstructing and analyzing the tracks of their passage in the silicon, it allows to extract the vertex of the annihilation, which is the main measurement tool in spectroscopy experiments \cite{ALPHA:2012wlk} as well as determining the antihydrogen dynamic in the trap \commento{aggiungere referenze}. 
 
 \subsection{The ALPHA2 Silicon Vertex Detector}
 
+The silicon vertex detector is a 3 layer detectors that is placed around the trap center reaching almost a full azimuthal coverage. The scheme of the detector is in figure \ref{fig:SVDscheme}. The detector is made by 72 modules, each constituted by 256 p-side and 256 n-side strips. The modules are arranged in two separated section along the axial direction with three concentric layers of 36 modules each. The choice of a multi-layer detector is driven by the fact that in such a way it is possible to sample three point of the trajectory of a charged pion in its flight, and hence reconstruct the track of the particle, and the annihilation vertex. 
 
-hyperfine splitting \footcite{ALPHA:2017fsh}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width = 0.75\textwidth]{figures/chapter 2/Alpha2 Detecor.png}
+\caption{Scheme of the Alpha2 silicon vertex detector (not to scale). The detector is made by 72 modules, that are read-out by ASICs  The figure is reproduced from \cite{ALPHA:2012wlk}.} \label{fig:SVDscheme}
+\end{figure}
+
+The signal of the detector are constituted by 'hits' in the silicon strips of each module, that are read-out by VA1TA ASIC read-out chips, which controls both the read-out and the trigger of an acquisition.
+The position information of a hit within a module is achieved by combining the signal information of the p-side and n-side strip of a \textit{hit}, and the passage is localized in the plane of the module.
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width = 0.75\textwidth]{figures/chapter 2/Example-of-track.png}
+\caption{Example of track and localization of the position of the passage withing a module of the detector. The image is reproduced from \cite{Hydomako2013}}
+\end{figure}
+
+During an experiment, the main source of background is constituted by cosmic tracks, mainly charged cosmic muons $\mu^{\pm}$, that are recorded by the detector. This energetic cosmic muons travel across the apparatus and are recorded as a single track composed of six hits. The topology of the cosmic events are different from the ones coming from real antiproton or antihydrogen annihilation, hence variable information can be used to discriminate the two cases. These informations are combined in a Multi Variable Analysis (MVA) that is used to effectively suppress cosmic background down to \SI{37.4}{\milli \hertz} rate.
