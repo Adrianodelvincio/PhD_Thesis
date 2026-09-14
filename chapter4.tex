@@ -27,8 +27,6 @@ Although these quoted values are estimated from runs with several thousands reco
 
 \section{Signal Model Definition}
 
-
-
 %In the analysis model, it is used for the {\it frequency marker} a definition related to the onset of the transition. With respect to previous measurement \cite{ALPHA:2017fsh}, however, some modifications are necessary, to account for the increased $\overline{\mathrm{H}}$ population in each run (which may result in detectable background from anti-atoms escaping the trap for reasons different than microwave-induced spin-flips) and for the increased sensitivity to differences between the \cb and \da lineshapes. 
 
 The lineshape model $f(\cdot)$ for the fit of the experimental data is constructed as the convolution of two functions: a bare function $g(\cdot)$ and a resolution/broadening function $R(\cdot)$:
@@ -46,7 +44,7 @@ The actual shape of $g$ can't be derived directly from first principles, since i
 \begin{itemize}
     \item its value is zero for frequency values lower than $f_o$, and strictly positive for frequencies higher than  $f_o$; 
     \item it features a monotonic rise (corresponding to an increase in the resonant volume as the frequency is increased) between $f_o$ and the maximum of the function;
-    \item it features a monotonic decay (associated to the decreasing antihydrogen population as the scan progresses) after the maximum. 
+    \item it features a monotonic decay (associated to the decreasing antihydrogen population as the scan progresses) after the maximum.
 \end{itemize}
 
 The "bare" function is described in the following \ref{eq:model1}:  
@@ -78,6 +76,7 @@ The onset (our chosen frequency marker) is defined as the minimum value at which
     \item $\sigma_{r}$ is the  standard deviation of the right-side Gaussian core portion, while $n$ describes the power-law right-tail (Crystal Ball function).  
 \end{itemize}
 
+Although complex, the core of this model has been developed considering a power law rise to describe the early part of the lineshape, and an asymmetric for the later part of the lineshape, and imposing continuity and first order differentiability at the junction point.
 To gain some physical intuition on the model, one can think of the 'bare' function $g$ as describing the lineshape we would observe if the atoms were stationary, the microwave radiation monochromatic, the magnetic field perfectly stable, etc., i.e., if all broadening sources were turned off. 
 
 In this hypothetical case, for an up-ward microwave frequency ramp, the onset would be well defined: it would correspond to the infinitely-large sample-size limit  of the minimum value corresponding to the first significant annihilation count, and would be associated to the lowest value of the magnetic field. In practice, since the experiment is not dealing with stationary atoms and perfect magnetic field, a certain level of broadening is expected.
@@ -160,7 +159,7 @@ The analysis approach to extract the splitting from the raw data has been develo
     \begin{tabular}{l|cccc}
          \hline\hline
 % SERIES 7 ___________________
-      {\bf Series 7} & & & & \\
+      {\bf \SI{1.07}{\tesla} dataset} & & & & \\
           {\bf Carlsberg reset}  & \multicolumn{3}{l}{19 May 2024: reset to 194.358 A} & 12:40     \\
     {\bf Repetition}   & {\bf Run}  & {\bf cb Init Freq (kHz)} & {\bf Unix Time (s)} & {\bf Time}  \\
           \hline
@@ -180,7 +179,7 @@ The analysis approach to extract the splitting from the raw data has been develo
          \hline
          \hline
 % SERIES 8 ___________________
-         {\bf Series 8} & & & & \\
+         {\bf \SI{1.03}{\tesla} dataset} & & & & \\
          {\bf Carlsberg reset} & \multicolumn{3}{l}{23 May 2024: reset to 186.426 A} & 13:13 \\
          {\bf Repetition}      & {\bf Run}  & {\bf cb Init Freq (kHz)} & {\bf Unix Time (s)} & {\bf Time} \\
           \hline 
@@ -218,7 +217,13 @@ Where $\vec{\mu}$ is the parameter space, $\vec{x}$ are the observations. The to
 
 \subsection{Blinding the Analysis}
 
-The analysis was conducted blind to avoid bias during the development. A random offset value was added to all frequency markers \fda transition, applied uniformly across both datasets. Consequently, the hyperfine splitting extracted from both series was shifted by the same unknown quantity. This offset was revealed only when all the systematic uncertainties had been determined and a common consensus of the analysis procedure had been reached among ALPHA collaboration members. 
+The analysis was conducted blind to avoid bias during the development. A random offset $\delta f_{blinding}$ value was added to all frequency markers \fda transition, applied uniformly across both datasets.
+
+\begin{equation} \label{eq:deltaf}
+f_{da}^{i} \equiv  f_{da}^{i} (t_{i}) +  \delta f_{blinding}
+\end{equation}
+
+Consequently, the hyperfine splitting extracted from both series was shifted by the same unknown quantity. This offset was revealed only when all the systematic uncertainties had been determined and a common consensus of the analysis procedure had been reached among ALPHA collaboration members.
 
 \subsection{Correlation between observable}
 
@@ -337,7 +342,7 @@ hfs = f_{da}^{i}(t) - f_{cb}^{i}(t) =  f_{da}^{i}(t + \Delta_t) - m \Delta_t - f
 where $\Delta_t$ is the time interval that occurs between a \cb and the following \da transition.
 
 
-\subsection{Extended Least Square Minimization}
+\subsection{Extended Least Square Minimization} \label{sec:CommonFitExtraction}
 
 %Assuming the same linear drift of the transition frequency as a function of time, resulting from the decay of the magnetic field of the solenoid, a common fit to the 8 $f_{o,cb}^{(i)}$ and $f_{o,da}^{(i)}$ gives the value of the blind $\nu^{blind}_{\overline{\mathrm{HF}}}$ and of the common linear drift $m$.
 %The nominal procedure assumes the decay of the solenoidal magnetic field to be linear in time and equal for the two transitions. 
@@ -397,9 +402,17 @@ This solution, for the linear case, can be written directly in an closed form. T
 \centering
 \includegraphics[width = \textwidth]{figures/chapter 4/cb_da_time_s7.png} \\
 \includegraphics[width = \textwidth]{figures/chapter 4/cb_da_time_s8.png}
-\caption{Frequency markers versus time for the \cb and \da transition of the low and high field series. The blue dotted line is the extended least square fit with common slope between the two lines}
+\caption{Frequency markers versus time for the \cb and \da transition of the low and high field series. The blue dotted line is the extended least square fit with common slope between the two lines.}
 \label{fig:FitEOLS}
 \end{figure}
+
+The plots shown in the previous figure contains also the non-normalized residuals of the linear extraction. The residuals for each individual run are also reported in Tab. \ref{tab:resultsBdrift}, and are simply defined as: 
+
+\begin{equation}
+res_{i} = f^{i}_{cb/da}(t_{i}) - ( m_{common} * t_{i} + q \pm \frac{hfs}{2})
+\end{equation}
+
+The statistical uncertainty associated with each $f^{i}_{cb/da}$ is \SI{1}{\kilo \hertz} order of magnitude. The dispersion of the residuals around zero is not compatible with 1 standard deviation. This should not, however, be interpreted as an argument against the analysis, since the effect that certain systematics have on the position of the frequency markers has not been taken into account. In the next section, a comprehensive review of the main systematic uncertainties associated with the experimental campaign and the analysis technique is presented.
 
 \section{Systematic Uncertainties}
 
@@ -410,9 +423,11 @@ The measurement is affected by multiple systematic sources. Some arise from the 
 
 As noted earlier, the key physical observable is extracted by difference: the resonance frequencies of the two transitions are not determined independently. Instead, the analysis uses fitted frequency markers—model parameters that act as proxies for resonance positions, without requiring them to be individually unbiased estimators of the true resonance frequencies. This differential strategy suppresses or cancels several systematic contributions and enables a precise measurement even in the absence of a fully realistic physical simulation of the spectra.
 
-\subsection{Bare Function}
+\subsection{The "bare" model}
 
-\subsubsection{Parameters controlling the Signal Shape}
+This section contains a summary of the systematic uncertainties related to the signal model (before introducing the convolution with the asymmetric resolution function). A Systematic uncertainty has been associated to the parameters controlling the signal shape, and the function choice itself.
+
+\subsubsection{Parameters controlling the signal shape}
 The shape parameters obtained from the fit to simulation, which rules the power law rise and the broadening, are used in the nominal MLE fit to extract the hyperfine-splitting. However, since the simulation does not have the complete physics to fully describe the spectra, a simultaneous fit to the available high statistic sample was performed, to benchmark the result of the simulation and to evaluate systematic uncertainty associated with the fixed parameters used in the nominal procedure.
 
 High statistic samples consist of runs collected with a much stacking of atoms than the standard runs; they are  used exclusively to fix certain parameters of the model and are not included in the extraction of the physics results. A total of three high-statistic repetitions were acquired: two of them for low magnetic field series (one before and one after the 8 repetitions) and one for the high field series (taken after the 8 nominal repetitions).
@@ -425,6 +440,7 @@ The high statistic samples have been fitted with the same empirical model descri
 %Nfcn  = 11477
 \begin{table}[!h]
 \centering
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{l|ccc}
 \hline
 \hline
@@ -452,6 +468,7 @@ duration of associated series (h)         & $12$ & $11.75$ & $11.75$\\
 \hline
 \hline
 \end{tabular}
+}
 \caption{Model float parameters from high statistics sample \label{tab:highstat_floatk}}
 \end{table}
 
@@ -462,6 +479,21 @@ The $k$ result of the fit is 5.4, which has been used to evaluate a component of
 \caption{Fit results on the high statistics samples, with the shared $k$ parameter left free to vary in the fit, and with shared $\Delta f$, to help the convergence of the fit.}
 \label{fig:fitwithfloatingk}
 \end{figure}
+
+\subsubsection{Alternative "bare" model}
+
+An alternative function has been used to evaluate systematic uncertainty about the function choice of the 'bare' model. The mathematical form of the model is:
+
+\begin{equation}
+\begin{dcases}
+0 \quad t^{'} = t - t_0 < 0 \\
+\frac{N_0}{\tau} \text{exp}( \dfrac{- t^{'} (t^{'} / T_{ramp} )^{\lambda}}{(\lambda + 1) \tau} ) \quad 0 \leq t^{'} = t - t_0 \leq T_{ramp}  \\
+\text{exp}(\dfrac{\lambda (T_ramp - t^{'}) - t^{'}}{(\lambda + 1) \tau})
+\end{dcases}
+\end{equation}
+
+ This model was originally developed to describe Monte Carlo simulations designed for an earlier version of the experiment, and it was deemed a suitable choice for validating the nominal empirical model. Its formulation, similarly to the nominal empirical model, was not derived rigorously from first-principles theoretical physics, but rather in a semi-empirical way.
+The model considers continuous rather than stepped frequency ramp, and   Here $N_0$ is the number of trapped anti-atoms, $t_0$ is the the time at which the onset condition is met, $\tau$ is the depletion rate during irradiation and $T_{ramp}$ is the time between the onset and the peek \commento{mi sembra sia così nel modello} and $\lambda$, which controls the shape. The systematic uncertainty has been evaluated by repeating the full analysis routine with this alternative function and considering the shift in the final result compared to the nominal choice (similarly to what has been done for the majority of the systematics). The result is reported in Tab. \ref{tab:results} (third raw, \textit{Bare function (choice)})
 
 \subsection{Frequency marker systematic uncertainty: the resolution function}
 
@@ -522,6 +554,7 @@ Shape variation are expected to have a non negligible impact on the measurement.
 
 \begin{table}[!h]
 \centering
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{l|ccc}
 \hline
 \hline
@@ -547,12 +580,13 @@ duration of associated series (h) & $12$ & $11.75$ & $11.75$\\
 \hline
 \hline
 \end{tabular}
+}
 \caption{Model float parameters from high statistics sample. The $\Delta f$ value (not corrected for the $B-$field drift, and blind) is shown as a cross-check.}
 \label{tab:highstatparam}
 \end{table}
 
 These results can be used to evaluate the effect of shape variations on the inferred value of the hyperfine splitting. To estimate such uncertainty, only the {\it post} distributions have been used. Assuming a difference in shape in time, the 8 repetitions have been fitted with the model obtained from the high statistic template, keeping all the shape parameters fixed to the ones obtained from the high statistic templates. The full analysis procedure has been repeated and the hyperfine splitting obtained with this alternative approach has been compared with the standard approach to evaluate the systematic. 
-Since the {\it post} were collected about $\Delta t_{post} = 12$ hours after the middle of the Physics {\it Series}, that lasted about $T_{series} = 12$ hours (see Fig.~\ref{fig:ListOfRuns}), the difference in the result has been divided by 2 (considering the Series extends $\pm T_{series}/2 \approx \pm \Delta t_{post}/2$ around the center of the Series). This estimate resulted in $\sim$ 4 kHz for the Series 7 and $\sim$ 7 kHz for the Series 8. The best-fit parameters for the high statistics  sample are reported in Tab.~\ref{tab:highstatparam}.
+Since the {\it post} were collected about $\Delta t_{post} = 12$ hours after the middle of the Physics {\it Series}, that lasted about $T_{series} = 12$ hours (see Fig.~\ref{tab:ListOfRuns}), the difference in the result has been divided by 2 (considering the Series extends $\pm T_{series}/2 \approx \pm \Delta t_{post}/2$ around the center of the Series). This estimate resulted in $\sim$ 4 kHz for the Series 7 and $\sim$ 7 kHz for the Series 8. The best-fit parameters for the high statistics  sample are reported in Tab.~\ref{tab:highstatparam}.
 
 Another cross check has been performed comparing the result of the HFS measurement, once imposing a common rise (parameter $r$ in Eq.~\ref{eq:model1}) for the 8 repetitions (the way it is done for the measurement) and once leaving such parameter to vary across the 8 repetitions (see Fig.~\ref{fig:free_rise}) as described in Sec.~\ref{checks}. 
 
@@ -609,7 +643,7 @@ da_{2024} - cb_{2024} \simeq da_{352s} - cb_{32s} = hfs - \Delta_{cb} + \Delta_{
 From this analysis, the systematic shift due to the short-term upward magnetic shift was estimated as $\sigma_{shift} = |  \Delta_{da} - \Delta_{cb}| = 1 \; kHz$. This value has been added in quadrature as a systematic uncertainty to the overall error budget of the measurement. 
 
 
-\begin{figure}[!hbtp]
+\begin{figure}[!h]
 \centering
 \includegraphics[width = \textwidth]{figures/chapter 4/upwardshort.pdf}
 \caption{This plots shows the results from the analysis of the 2023 data. This analysis has been used to constrain magnetic upward drift induced from beam-line magnet manipulation during antihydrogen stacking phase. The change of the beam-line magnets during stacking can induce parasitic currents on Mirror and Solenoid magnets, causing a small magnetic upward drift. Since the \da transitions always follows the \cb transition, this effect can generate a systematic shift in the frequency that change the value of the splitting. This shift has been constrained using 2023 data that were collected with two protocols. In the first protocol there are \SI{32}{\second} between the start of the microwave measurement. In the second protocol the time interval is increased to \SI{352}{\second}. With this setup, the \cb transition with the \SI{352}{\second} delay starts at the same time, with respect to the beam-line magnet manipulation, of the \da transition with the \SI{32}{\second} delay. The frequency markers shown are the result of the analysis on Pass Cuts data.}
@@ -618,7 +652,7 @@ From this analysis, the systematic shift due to the short-term upward magnetic s
 
 \subsection{Magnetic decay over time} \label{sec:decaySystematic}
 
-As mentioned in the experimental protocol \ref{Protocol-of-experiment}, the decay of the magnetic field has to be corrected by the analysis to extract the hyperfine splitting. The magnetic field drift can be characterized with ECR measurement and with spectroscopy itself. In the current analysis, no ECR measurements were used to account for the drift, and the magnetic field has been introduced as a parameter in the common linear fit. Hence, an assumption of a linear decay has been used in the main analysis, and systematic uncertainty must be accounted for this particular choice.
+As mentioned in the experimental protocol \ref{Protocol-of-experiment}, the decay of the magnetic field has to be corrected in the analysis to extract the hyperfine splitting. The magnetic field drift can be characterized with ECR measurement and with spectroscopy itself. In the current analysis, no ECR measurements were used to account for the drift, and the magnetic field has been introduced as a parameter in the common linear fit. Hence, an assumption of a linear decay has been used in the main analysis, and systematic uncertainty must be accounted for this particular choice.
 
 Gaussian process regression (\textit{GPR}) technique has been employed as an alternative method to correct for the magnetic field drift over time. Instead of testing different decay models, the gaussian process regression uses non parametric supervised learning methods to solve regression problems. This method allows an alternative estimate of the hyperfine splitting without relying on the assumption of a linear decay of the field. This technique has been applied to the average of the frequency markers:
 
@@ -661,9 +695,9 @@ The simulation was performed by creating pseudo-data from the real datasets. Gli
 
 The simulation consider the displacement to be asymmetrical. This mean that negative current glitches (where the magnetic field decreases) anticipate annihilations happening later-on in the spectra, while positive glitches delayed some of the annihilation to the next bin. With this simulation mechanism, pseudo-data where generated and fitted with the same nominal protocol used in the analysis. The simulation consisted of 40 pseudo-experiments, and the standard deviation of the results was used to estimate the effect of the splitting. The standard deviation of the results obtained for both the series is \SI{0.7}{\kilo \hertz}, which is small compared to other systematic uncertainties. Beside this, further consideration indicates that assuming a 100 \% conversion from current to frequency displacement is generous overestimation. In fact, because of the coupling between different magnets, the mutual induction contributes to mitigate the effect on the magnetic field profile. This computed value is to be considered as a cross-checks that shows that is such a mechanism  is presents, its influence on the measurement is small, hence it was not considered in the final estimation of the systematic uncertainty.  
 
-\subsection{Error Budget Table}
+\subsection{Error Budget Table} \label{sec:ErrorBudgetSec}
 
-This section contains the error budget table, which contains all the alternative results of the analysis
+This section contains the error budget table, which contains all the alternative results of the analysis by the different methodologies that have been considered for systematic studies. The first row, indicated with \textit{Nominal,("common fit" linear GLS)}, represents the final analysis result with the nominal parameters and methodology. The reported result is blinded, and the frequency separation used during the experiment (the separation between the \cb and \da microwave sweeps), that is equal to \SI{1420390}{\kilo \hertz}, it is not added to the final result. All the remaining rows represents different analysis methodologies that have been considered to estimate the various systematic uncertainties. All results are blinded using the same blinding value, so that they all share a common offset and can therefore be directly compared; they are grouped into separate sections, according to the specific effect each alternative approach is intended to address. The systematic uncertainty is estimated from the difference between the \textit{Nominal} result and the alternative approach. This difference has been reported for each alternative approach in a separate column indicated with \textbf{\Delta}. For each sub-group, the maximum difference has been taken as the nominal systematic uncertainty, and is reported in summary Tab. \ref{tab:syst}. The last column contains the combination of the two series, and the result are obtained by weighted mean of the result of the two series using the statistical error as weight.
 
 \begin{table}[!h]																			
 \small 
@@ -673,7 +707,7 @@ This section contains the error budget table, which contains all the alternative
 %\hline
 %\multicolumn{7}{c}{GLS COMBINED LINEAR FIT} \\
 \hline								\hline		
-\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{Series 7 (kHz)}} & \multicolumn{2}{c||}{\textbf{Series 8 (kHz)}} & \multicolumn{2}{c}{\textbf{Combination}} \\																			
+\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{High field (kHz)}} & \multicolumn{2}{c||}{\textbf{Low Field (kHz)}} & \multicolumn{2}{c}{\textbf{Combination}} \\																			
 	& $	\nu^{blind}_{\overline{HF}}	\pm	\sigma$ & $	\bf{\Delta}$ & $ \nu^{blind}_{\overline{HF}} \pm	\sigma$ & $\bf{\Delta}$ & $ \nu^{blind}_{\overline{HF}} \pm	\sigma$ & $\bf{\Delta}$ \\
 \hline																			
 \hline												 
@@ -686,8 +720,7 @@ Nominal with g from post	                     & $ 16.48 \pm 0.4 $ & $ (5.65)	 $ 
 {\it $\Delta$ is divided by 2 (see text)}        &                   & $ {\bf 2.8 } $ &                  & ${\bf -7.0}$     &                & ${\bf -2.7}$ \\
 \hline 
 \hline
-{\it Bare function} & & & & & & \\
-{\it (choice)}      & & & & & & \\
+{\it Bare function (choice)} & & & & & & \\
 Alt. bare model, $k=2$, $t_{cusp}=6$	          & $ 11.28 \pm 1.4$ & ${\bf 0.5}$    & $9.65	\pm 0.4$ & ${\bf 0.7}$      &  $10.36 \pm 0.4$& ${\bf 0.6}$ \\
 \hline
 {\it (parameters)} & & & & & & \\
@@ -732,7 +765,7 @@ Nominal without $\mu$w transition veto	   & $10.93 \pm 1.7 $  & $ 0.1 $    & $8.
 \hline
 \end{tabular}
 }
-\caption{Results of the nominal maximum likelihood fit. {\bf \textcolor{red}{The	results are blind}} (see equation \ref{eq:BlindtoUnblind}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
+\caption{Results of the nominal maximum likelihood fit. {\bf \textcolor{red}{The results are blind}} (see equation \ref{eq:deltaf}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
 \label{tab:results}}								
 \end{table}
 
@@ -773,6 +806,52 @@ The result of the analysis with this different method is:
 \end{itemize}
 
 These values estimates an uncertainty smaller than the ones that was used for the error budget. Since this represents a worst case scenario, this add confidence that this contribution is under control.
+
+\subsection{Z and Radius variable selection}
+
+A validation has been performed by applying a $Z$ and radius selection in addition to the MVA classifier already considered. The analysis has been repeated for two complementary $Z$ cut selection, considering firstly all the annihilation above the mean of the Z distribution and secondly the ones below (see Fig. \ref{fig:ZcutSelection}). This test was carried out to search for inconsistencies in the annihilation pattern, and the results obtained are compatible with one another, indicating no evidence of a dependence of the analysis result on the Z variable at the current resolution level.
+A similar study was conducted using alternative radius cuts. Radius selections can help reveal possible contributions from residual-gas annihilations, which are expected to occur at a smaller radius than induced spin-spin-flip annihilations: residual-gas annihilations can happen anywhere inside the trap volume, whereas spin-flip annihilations occur on trap wall, at a larger value. Naturally, due to detector resolution, the reconstructed radius distribution is smeared between these two regimes, blurring the distinction. A summary of this studies in contained in Tab. \ref{tab:selections}
+
+
+\begin{table}[!h]
+\centering							
+\begin{tabular}{l||r|l||r|l}					
+\hline
+\hline								
+\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{Low field dataset}} & \multicolumn{2}{c}{\textbf{High field dataset}} \\
+ & $	\mu	\pm	\sigma \;({\rm kHz})$ & $	\bf{\Delta}	\;({\rm kHz})$ & $	\mu	\pm	\sigma	\;({\rm kHz}) $ & $	\bf{\Delta}	\;({\rm kHz})$ \\
+\hline
+\hline
+{\bf \textcolor{blue}{Nominal}}	& {\textcolor{blue}{10.84 $\pm$ 1.7}} &$- $& {\textcolor{blue}{8.98 $\pm$ 1.5 }}& $ - $ \\
+\hline
+\hline
+$1.5< r< 4\,{\rm cm}$ & $ 10.09 \pm 1.9 $ & $ -0.8 $& $ 6.95 \pm 1.7 $ & $ -2.03  $ \\
+$ |z|<5\,{\rm cm}$    & $9.65 \pm 1.7$ & $-1.2 $& $9.92 \pm 1.5$ & $ +1.0 $ \\
+\hline
+\hline
+ $Z_{cb} > 0.62 $ \& $Z_{da} > 0.78$ & $ 12.3 \pm 2.4 $ & $ 1.4$ & N/A & N/A\\
+ $Z_{cb} < 0.62 $ \& $Z_{da} < 0.78$ & $ 9.9 \pm 2.4  $ & $-0.9$ & N/A & N/A\\
+\hline
+ $Z_{cb} >$ 0.37  \& $Z_{da} > 0.16$ & N/A & N/A & $8.00  \pm 2.1$ & $ -1.0 $ \\
+ $Z_{cb} <$ 0.37  \& $Z_{da} < 0.16$ & N/A & N/A & $10.32 \pm 2.0$ & $ +1.3$\\
+
+\hline
+\hline
+\end{tabular}
+\caption{Comparison of the results with geometrical selections. The results reported in the table are {\bf \textcolor{red}{blind}}. The \textcolor{blue}{Nominal} value is correspond to the blind result of the analysis. The systematic shift is the result of the difference between the values reported in the nominal row and the and the other values reported in the following rows.}
+\label{tab:selections}
+\end{table}
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width = \textwidth]{figures/chapter 4/Z_s7.pdf} \\
+\includegraphics[width = \textwidth]{figures/chapter 4/Z_s8.pdf}
+\caption{Distribution of $Z$ variable of the annihilation vertices for the high field series (top) plot, and low field series (bottom plot). Each plot show two distribution: the Z distribution for annihilation during \cb measurement (black continuous line) and during \da measurement (red dotted lines). The distribution contains all the accumulated events of the eight repetitions.}
+\label{fig:ZcutSelection}
+\end{figure}
+
+
 
 \subsection{Residuals}
 

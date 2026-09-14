@@ -1,9 +1,32 @@
 \chapter{Results Summary}
 
+In the previous chapter we have presented the data analysis that was performed on the 2024 data to extract the hyperfine splitting of the antihydrogen atom. The analysis has been developed with blinded results, and the analysis results have been revealed in a confidential collaboration meeting in the early months of 2025.
+
+The hyperfine splitting has been measured for the two different dataset, and the final results are:
+
+\begin{equation*}
+\nu^{high field}_{\overline{H}} = 1420405.8 \pm 1.7 \pm 7.0 \, kHz
+\end{equation*}
+
+for the dataset taken at higher magnetic field values (\SI{1.07}{\tesla}), while 
+
+\begin{equation*}
+\nu^{high field}_{\overline{H}} = 1420403.9 \pm 1.5 \pm 8.8 \, kHz
+\end{equation*}
+
+for the dataset taken at lower magnetic field values (\SI{1.03}{\tesla}). The results have been statistically combined, with a weighted mean, also computing the combined systematic error of the two series (as explained in Sec. \ref{sec:ErrorBudgetSec}). This results represents the most precise determination of the hyperfine splitting of the ground state of the antihydrogen atom. This experimental result has been published in Nature journal \cite{ALPHA:2026lbu}. The combined results is
+
+\begin{equation*}
+\nu_{\overline{H}} = 1420404.8 \pm 1.1 \pm 5.6 \, kHz
+\end{equation*} 
+
 \section{Table of Results}
+
+Tab \ref{tab:resultsBdrift} contains the numerical values of the residuals from the linear common fit extraction, as discussed in Sec. \ref{sec:CommonFitExtraction}. The table contains the magnetic field decay $m$ determined with the two method ("common" fit and "split" method), with the first one used in the nominal approach and the latter for systematic evaluation. 
 
 \begin{table}[h]
 \centering
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{l|cc|cc}
 \hline
 \hline
@@ -28,6 +51,7 @@ $m_{split}$ (kHz/h) & $-75.3 \pm 0.1$  & $-75.9 \pm 0.1$ & $-73.0 \pm 0.1$ & $-7
 \hline
 \hline
 \end{tabular}
+}
 \caption{$B$-drift correction parameters and residuals from the common linear fit
 \label{tab:resultsBdrift}}
 \end{table}
@@ -35,8 +59,11 @@ $m_{split}$ (kHz/h) & $-75.3 \pm 0.1$  & $-75.9 \pm 0.1$ & $-73.0 \pm 0.1$ & $-7
 
 \subsection{Uncertainty Table}
 
+The Tab. \ref{tab:syst} summarizes all the main uncertainties, which have been determined by selecting the greatest contribution from every block in the error budget table \ref{sec:ErrorBudgetSec}. The total systematic have been determined as the quadrature sum of each individual contribution.
+
 \begin{table}[!h]
 \centering
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{r|c|c|c}
 \textbf{Source}  & \textbf{Series 7}  (kHz) &  \textbf{Series 8}  (kHz) & \textbf{Combination}\\
 \hline \hline
@@ -62,9 +89,30 @@ Data selection and binning               & 2.0 & 2.0 & 2.0\\
 \hline
 \textbf{Total systematic}                & 7.0 & 8.8 & 5.6\\
 \end{tabular}
+}
 \caption{Summary of the uncertainties associated to the measurement of the hyperfine splitting.
 \label{tab:syst}}
 \end{table}
 
 
 \section{CPT, outlook}
+
+This recent result from the alpha collaboration allow a direct comparison with the most precise determination of the ground state hyperfine level on hydrogen for testing CPT invariance in a model-independent test. While the agreement between the antihydrogen and hydrogen ground-state hyperfine splitting constitutes a stringent, model-independent test of CPT symmetry, any measurable discrepancy would directly signal CPT violation, without reference to any specific theoretical framework. Considering the current statistical uncertainty of the measurement, \SI{5.6}{\kilo \hertz}, one can directly determine:
+
+\begin{equation}
+\frac{\delta \nu_{\overline{H}}}{\nu_{\overline{H}}} = \frac{5.6 \; kHz}{1420404.8 \; kHz} \approx 4 \times 10^{-6} 
+\end{equation}
+
+At the current 4 ppm level of precision, the antihydrogen ground state hyperfine splitting has become comparable in size to the corrections arising from the charge and magnetization distribution of the antiproton, analogous to the well-known proton structure (Zemach radius) which for hydrogen causes a finite size shift of about $-32$ ppm \cite{Widmann_2022}. It is possible to disentangle nuclear structure correction with pure QED contributions by using a separate measurement, the hyperfine splitting of the 2S energy level. The difference $D_{21} = 8 \Delta E_{hfs}(2S) - \Delta E_{hfs}(1S)$, which is called Sternheim interval, has the property of largely cancelling out the nuclear structure terms, isolating a independent quantity for precision QED tests \cite{Sternheim:1963zz}. With this most recent result, the Sternheim interval has been determined with a new precision:
+
+\begin{equation*}
+(8 \Delta E_{hfs}(2S) - \Delta E_{hfs}(1S)) / h = 100 \pm 150 \; kHz
+\end{equation*}
+
+where the precision is now limited by measurement of the $\nu_{2S, \overline{H}}$ splitting. The current determination on hydrogen, predicted by QED, leads to $48.9592 \pm 0.0068 \; kHz$ \cite{PhysRevLett.130.203001}, and show good agreement with the new determination on antihydrogen.
+
+About the context within the Standard-Model Extension (SME) \cite{ColladayKostelecky1997,ColladayKostelecky1998}, the interpretation is more limited: the transition currently exploited requires driving the atom from a trapped, low-field-seeking state into an untrapped, high-field-seeking one, and the reported hyperfine constant is obtained by combining two such field-dependent resonances so as to cancel the poorly known local trapping field. Translating this agreement into a quantitative constraint on physics beyond the Standard Model, however, requires a dedicated theoretical framework, the Standard-Model Extension (SME). Within the context of SME \cite{Bluhm_1999,Kostelecky:2015nma}, the sensitivity of hydrogen and antihydrogen transitions to the various SME coefficients, including the ground-state Zeeman-hyperfine transitions studied in this work, were investigated.
+
+ Within this framework, two considerations limit the sensitivity of the present measurement to genuine beyond-Standard-Model CPT violation. First, a hypothetical Lorentz-violating signal is expected to manifest as a small periodic modulation of the transition frequency over a sidereal day, as the orientation of the apparatus changes relative to a fixed celestial frame; extracting such a signal requires both a dedicated sidereal-time analysis and a systematic uncertainty well below the expected modulation amplitude. In the present analysis, however, the dominant uncertainty arises from the ordinary, non-exotic systematic associated with the unknown magnitude and inhomogeneity of the trapping magnetic field — an effect several orders of magnitude larger than any plausible SME-induced shift, and the combination technique used to cancel it was not designed to isolate a sidereal modulation. Second, the transition exploited in this measurement predominantly flips the positron spin, and is therefore primarily sensitive to SME coefficients in the electron sector — a sector already constrained far more tightly by independent, high-precision comparisons of the electron and positron g-factors in Penning traps. A measurement with genuine discovery potential would instead need to target a less-constrained sector.
+
+Both limitations point toward the same experimental direction: a future measurement of the nuclear-magnetic-resonance-type transition between the two trapped hyperfine sublevels, which flips the antiproton spin instead. Such a transition is expected to be substantially less sensitive to the trapping-field systematic that currently dominates the uncertainty budget, and it probes the proton/antiproton sector of the SME, which remains comparatively unexplored. Combined with a dedicated search for sidereal variation, this measurement would represent a natural and well-motivated next step toward exploiting antihydrogen hyperfine spectroscopy as a genuine probe of physics beyond the Standard Model, rather than solely as a model-independent CPT test.
