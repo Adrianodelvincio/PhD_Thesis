@@ -28,7 +28,7 @@
 
 \usepackage{multirow}
 
-\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[backend=biber,style=numeric-comp, sorting=none]{biblatex}
 \addbibresource{bibliografia.bib}
 
 \usepackage{hyperref}
@@ -46,18 +46,23 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\contentof}[1]{\textit{#1}}
+%\newcommand{\contentof}[1]{\textit{#1}}
+\newcommand{\contentof}[1]{ }
 
 \newcommand{\commento}[1]{\textcolor{green}{#1}}
 
 \newcommand{\nullo}[1]{ }
 
-\newcommand{\fcb}[0]{$f_{c \rightarrow b}$ }
-\newcommand{\fda}[0]{$f_{d \rightarrow a}$ }
-\newcommand{\cb}[0]{\textbf{cb} }
-\newcommand{\da}[0]{\textbf{da} }
-\newcommand{\Hbar}[0]{ $\overline{H}$ }
+\newcommand{\cstate}[0] { $\ket{c}$ }
+\newcommand{\dstate}[0] { $\ket{d}$ }
+\newcommand{\fcb}[0]{    $f_{cb}$ }
+\newcommand{\fda}[0]{    $f_{da}$ }
+\newcommand{\cb}[0]{     $\ket{c} \rightarrow \ket{b}$ }
+\newcommand{\da}[0]{     $\ket{d} \rightarrow \ket{a}$ }
+\newcommand{\Hbar}[0]{   $\overline{H}$ }
 \newcommand{\likelihood}{$\mathcal{L}$}
+\newcommand{\ALPHA}{ALPHA }
+\newcommand{\AD}{AD}
 
 
 \begin{document}
@@ -85,7 +90,7 @@
 {\Large Space Science and Technology}
 
 \vspace{2.5cm}
-{\huge \bf Ground State Hyperfine Splitting At The Alpha Experiment At Cern}\\
+{\LARGE \bf Ground State Hyperfine Splitting Measurement at the ALPHA Experiment at CERN}\\
 \vspace{0.4cm}
 %{\small SUBTITLE} \\
 %{\normalsize \textit{Usually longer and Optional}}\\
@@ -102,7 +107,8 @@
 {\normalsize Co-Supervisor} \\
 {\hspace{1.5cm} Dott. Simone Stracka} \\ 
 \vspace{0.5cm}
-{University of Brescia} \\
+%{University of Brescia} \\
+%{University of Trento}
 \vspace{1.5cm}
 %{\normalsize Co-Supervisor}\\
 %{\hspace{1.5cm}  Prof. ...} \\
@@ -114,10 +120,6 @@
 \rule{\textwidth}{0.6pt}
 
 \vfill % Pushes everything above towards the top
-
-\begin{center}
-    \textbf{\today} % This prints the current date
-\end{center}
 
 \end{titlepage}
 
@@ -140,6 +142,9 @@
 \input{chapter4}
 
 \input{chapter5}
+
+\listoftables
+\listoffigures
 
 \input{appendix}
 
