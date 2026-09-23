@@ -1,6 +1,90 @@
 \begin{appendices}
 
-\section{Calculation of the Fine Structure for the 1s Energy Level}
+\section{Calculation of the Fine Structure for the 1s Energy Level} \label{app:finestructure}
+
+This appendix derives, following the perturbative approach of Cohen-Tannoudji, Diu and Lalo\"e \cite{QuantumMechanics}, the fine-structure correction to the $1s$ ($n=1$, $l=0$) ground-state energy level of the hydrogen (or antihydrogen) atom, quoted without proof in Ch.~\ref{ch:hyperfine}. As recalled there, once the hyperfine term $W_{hf}$ is set aside, the fine structure of the atom originates from three additional terms in the Hamiltonian, all of order $\alpha^2$ relative to the leading-order Bohr energy $E_n$:
+
+\begin{equation}
+H_{fs} = \underbrace{-\dfrac{p^4}{8 m_{e}^3 c^2}}_{H_{rel}} \; + \; \underbrace{\frac{1}{2m_{e}^2 c^2} \dfrac{1}{r}\dfrac{dV(r)}{dr}\, L \cdot S}_{H_{SO}} \; + \; \underbrace{\frac{\hbar^2}{8m_{e}^2 c^2} \Delta V(r)}_{H_{D}} \, ,
+\end{equation}
+
+namely the relativistic correction to the kinetic energy, the spin-orbit coupling, and the Darwin term. Since $H_{fs}$ is small compared to $H_0 = p^2/2m_e + V(r)$, its effect on the (non-degenerate, for fixed $n,l,j$) energy levels can be evaluated at first order in perturbation theory, $\Delta E_{fs} = \bra{\psi} H_{fs} \ket{\psi}$, using the unperturbed hydrogenic eigenstates. For the $1s$ state, the normalized wavefunction is
+
+\begin{equation}
+\psi_{1s}(r) = \frac{1}{\sqrt{\pi}}\, a_0^{-3/2}\, e^{-r/a_0} \, ,
+\end{equation}
+
+with $a_0$ the Bohr radius. Throughout this appendix, the fine-structure constant is used in its usual definition $\alpha = e^2/(4\pi \epsilon_0 \hbar c)$, so that the Coulomb potential and the Bohr radius can be written as $V(r) = -\alpha \hbar c / r$ and $a_0 = \hbar/(m_e c \alpha)$, and the ground-state energy is $E_1 = -\frac{1}{2} m_e c^2 \alpha^2$.
+
+\subsection*{Relativistic correction to the kinetic energy}
+
+A direct evaluation of $\bra{\psi_{1s}} p^4 \ket{\psi_{1s}}$ is most conveniently carried out by noting that, on an eigenstate of $H_0$, $p^2 = 2m_e (H_0 - V(r))$, so that
+
+\begin{equation}
+\bra{\psi_{1s}} p^4 \ket{\psi_{1s}} = 4 m_e^2 \bra{\psi_{1s}} (H_0 - V(r))^2 \ket{\psi_{1s}} = 4 m_e^2 \left[ E_1^2 - 2 E_1 \braket{V} + \braket{V^2} \right] \, ,
+\end{equation}
+
+which only requires the expectation values $\braket{1/r}$ and $\braket{1/r^2}$ on the $1s$ state. Using $\int_0^\infty x^n e^{-2x/a_0}\, dx = n! \, (a_0/2)^{n+1}$ together with $|\psi_{1s}(r)|^2 = e^{-2r/a_0}/(\pi a_0^3)$,
+
+\begin{equation}
+\braket{\frac{1}{r}} = \frac{1}{a_0} \, , \qquad \braket{\frac{1}{r^2}} = \frac{2}{a_0^2} \, .
+\end{equation}
+
+Recalling $V(r) = -\alpha \hbar c/r$ and $a_0 = \hbar/(m_ec\alpha)$, this gives $\braket{V} = -\alpha \hbar c/a_0 = -m_ec^2\alpha^2 = 2E_1$ (the expected virial-theorem result) and $\braket{V^2} = 2\alpha^2\hbar^2c^2/a_0^2 = 2m_e^2c^4\alpha^4$. Substituting,
+
+\begin{equation}
+E_1^2 - 2E_1\braket{V} + \braket{V^2} = \frac{1}{4}m_e^2c^4\alpha^4 - m_e^2c^4\alpha^4 + 2m_e^2c^4\alpha^4 = \frac{5}{4} m_e^2c^4\alpha^4 \, ,
+\end{equation}
+
+so that
+
+\begin{equation}
+\bra{\psi_{1s}} H_{rel} \ket{\psi_{1s}} = -\frac{1}{8m_e^3c^2} \bra{\psi_{1s}} p^4 \ket{\psi_{1s}} = -\frac{m_e^2}{2m_e^3c^2} \cdot \frac{5}{4} m_e^2c^4\alpha^4 = -\frac{5}{8}\, m_e c^2 \alpha^4 \, .
+\end{equation}
+
+\subsection*{Spin-orbit coupling}
+
+The spin-orbit term is proportional to $L \cdot S$, so its expectation value is proportional to $\bra{\psi_{1s}} L \ket{\psi_{1s}}$. Since the $1s$ state has $l=0$, it is an eigenstate of $L$ with eigenvalue zero, $L\ket{\psi_{1s}} = 0$, irrespective of the (formally divergent) behaviour of $\braket{1/r^3}$ that multiplies it. The spin-orbit contribution to the $1s$ level therefore vanishes identically,
+
+\begin{equation}
+\bra{\psi_{1s}} H_{SO} \ket{\psi_{1s}} = 0 \, .
+\end{equation}
+
+\subsection*{Darwin term}
+
+The Darwin term involves the Laplacian of the Coulomb potential, for which the identity $\Delta(1/r) = -4\pi \delta^3(r)$ holds. Using $V(r) = -\alpha\hbar c/r$,
+
+\begin{equation}
+\Delta V(r) = 4\pi \alpha \hbar c\, \delta^3(r) \, , \qquad H_D = \frac{\hbar^2}{8m_e^2c^2}\, 4\pi\alpha\hbar c\, \delta^3(r) = \frac{\pi \alpha \hbar^3}{2 m_e^2 c}\, \delta^3(r) \, .
+\end{equation}
+
+Its expectation value only involves the wavefunction at the origin, $|\psi_{1s}(0)|^2 = 1/(\pi a_0^3)$, so that
+
+\begin{equation}
+\bra{\psi_{1s}} H_D \ket{\psi_{1s}} = \frac{\pi \alpha \hbar^3}{2 m_e^2 c} \, |\psi_{1s}(0)|^2 = \frac{\alpha \hbar^3}{2 m_e^2 c\, a_0^3} \, .
+\end{equation}
+
+Substituting $a_0^3 = \hbar^3/(m_e^3c^3\alpha^3)$ gives
+
+\begin{equation}
+\bra{\psi_{1s}} H_D \ket{\psi_{1s}} = \frac{1}{2}\, m_e c^2 \alpha^4 \, .
+\end{equation}
+
+\subsection*{Total fine-structure shift of the 1s level}
+
+Summing the three contributions, the spin-orbit term vanishing identically for $l=0$, the total first-order fine-structure shift of the $1s$ level is
+
+\begin{equation} \label{eq:fs1s}
+\Delta E_{fs}(1s) = \bra{\psi_{1s}} H_{rel} \ket{\psi_{1s}} + \bra{\psi_{1s}} H_{D} \ket{\psi_{1s}} = -\frac{5}{8}\, m_e c^2 \alpha^4 + \frac{1}{2}\, m_e c^2 \alpha^4 = -\frac{1}{8}\, m_e c^2 \alpha^4 \, ,
+\end{equation}
+
+which is the value quoted, without derivation, in Ch.~\ref{ch:hyperfine}. As a consistency check, this perturbative result can be compared with the exact fine-structure formula obtained from the relativistic Dirac equation for hydrogen,
+
+\begin{equation}
+\Delta E_{n,j} = -\frac{m_e c^2 \alpha^4}{2n^4} \left[ \frac{n}{j+1/2} - \frac{3}{4} \right] \, ,
+\end{equation}
+
+which, evaluated for the $1s_{1/2}$ state ($n=1$, $j=1/2$), gives $\Delta E_{1,1/2} = -\frac{1}{2} m_e c^2 \alpha^4 \left[ 1 - \frac{3}{4} \right] = -\frac{1}{8} m_e c^2 \alpha^4$, in exact agreement with Eq.~\eqref{eq:fs1s}. Since $l=0$ is the only orbital angular momentum available for $n=1$, the fine-structure correction to the ground state is a common shift of the whole $1s$ level rather than a splitting between sub-levels, unlike for $n \geq 2$, where the fine structure additionally separates states of different total angular momentum $j$ at fixed $n$.
 
 \section{Fast Scintillator System for measuring Positron Plasma Time Structure}
 

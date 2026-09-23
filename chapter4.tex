@@ -488,7 +488,7 @@ An alternative function has been used to evaluate systematic uncertainty about t
 \begin{dcases}
 0 \quad t^{'} = t - t_0 < 0 \\
 \frac{N_0}{\tau} \text{exp}( \dfrac{- t^{'} (t^{'} / T_{ramp} )^{\lambda}}{(\lambda + 1) \tau} ) \quad 0 \leq t^{'} = t - t_0 \leq T_{ramp}  \\
-\text{exp}(\dfrac{\lambda (T_ramp - t^{'}) - t^{'}}{(\lambda + 1) \tau})
+\text{exp}(\dfrac{\lambda (T_{ramp} - t^{'}) - t^{'}}{(\lambda + 1) \tau})
 \end{dcases}
 \end{equation}
 
@@ -613,7 +613,7 @@ The long-term linear drift is not the only effect requiring careful treatment. A
 
 In principle, this effect can be estimated through theoretical calculation of the parasitic currents induced from the beam-line magnets to the mirror coils and the superconducting solenoid. In practice, this approach is challenging, given the required target accuracy of this measurement. So a data driven approach was followed.
 
-The systematic uncertainty associated with this effect has been constrained using data taken in 2023, following an experimental protocol similar to the one used for the 2024 campaign, but with specific modifications to isolate and study this effect. The protocol consisted of repeating the same measurement, a \cb and \da transition pair, with a deliberate delay introduced in the sequence between the final manipulation of the beam-line currents and the start of spectroscopy. In the first variant, the spectroscopy began \SI{32}{\second} after the last manipulation of the beam-line magnet change. In the second variant, the delay was set to \SI{320}{\second}. The delays were chosen in such a way that the \cb measurement with the second protocol coincides in time with the \da measurement of protocol 1, and the data taking consisted of alternately repeating one measurement with protocol 1 and one with protocol 2. Apart from this modification, the data-taking procedure was analogous to that employed in 2024. 6 repetitions with the first protocol and 5 repetitions with the second were taken, to correct the linear magnetic field drift and extract the transition splitting. In the following analysis, we denote $cb_{32s (352s)} ; da_{32s (352s)} $ as the frequency marker intercepts from the linear fit corresponding to the first (second) protocol. The frequency shifts induced by the short-term upward magnetic drift can then be expressed as follows:
+The systematic uncertainty associated with this effect has been constrained using data taken in 2023, following an experimental protocol similar to the one used for the 2024 campaign, but with specific modifications to isolate and study this effect. The protocol consisted of repeating the same measurement, a \cb and \da transition pair, with a deliberate delay introduced in the sequence between the final manipulation of the beam-line currents and the start of spectroscopy. In the first variant, the spectroscopy began \SI{32}{\second} after the last manipulation of the beam-line magnet change. In the second variant, the delay was set to \SI{352}{\second}. The delays were chosen in such a way that the \cb measurement with the second protocol coincides in time with the \da measurement of protocol 1, and the data taking consisted of alternately repeating one measurement with protocol 1 and one with protocol 2. Apart from this modification, the data-taking procedure was analogous to that employed in 2024. 6 repetitions with the first protocol and 5 repetitions with the second were taken, to correct the linear magnetic field drift and extract the transition splitting. In the following analysis, we denote $cb_{32s (352s)} ; da_{32s (352s)} $ as the frequency marker intercepts from the linear fit corresponding to the first (second) protocol. The frequency shifts induced by the short-term upward magnetic drift can then be expressed as follows:
 
 \begin{align*}
 \Delta _{cb} &= cb_{32s}  - cb_{352s} \\
@@ -765,7 +765,7 @@ Nominal without $\mu$w transition veto	   & $10.93 \pm 1.7 $  & $ 0.1 $    & $8.
 \hline
 \end{tabular}
 }
-\caption{Results of the nominal maximum likelihood fit. {\bf \textcolor{red}{The results are blind}} (see equation \ref{eq:deltaf}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
+\caption{Results of the nominal maximum likelihood fit. The results are blind (see equation \ref{eq:deltaf}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
 \label{tab:results}}								
 \end{table}
 
@@ -776,7 +776,7 @@ Nominal without $\mu$w transition veto	   & $10.93 \pm 1.7 $  & $ 0.1 $    & $8.
 The fit procedure has been thoroughly described in Sec. \ref{sec:MLEfit}. The parameters of the fit regarding the rise of the line-shape were common for all the repetitions of a given transition. This was done under the assumption that the shape remains the same during the period of time of the Series data taking. A systematic uncertainty was estimated for this assumption in Sec. \ref{sec:Reproducibility}. As a cross-check, this requirement was relaxed and the 8 repetitions were allowed to have different rise widths (via the $\sigma$ parameter). The values of the rise length, for the \cb and for the \da transitions, are reported in Fig.~\ref{fig:free_rise}  for Series 8. With this configuration, the values of $\mu = \langle\Delta f^i \rangle$ and of the corresponding standard deviation are:
 \begin{itemize}
     \item \textbf{series 7}: $ 1\,420\,404.1 \pm 1.7 \; {\mathrm{(stat)}}$, 
-    \item \textbf{series 8}: $ 1\,420\,402.2 \pm 1.4 \; ({\mathrm{(stat)}}$, 
+    \item \textbf{series 8}: $ 1\,420\,402.2 \pm 1.4 \; {\mathrm{(stat)}}$, 
 \end{itemize}
 yielding a combined value of $1\,420\,403.0 \pm 1.1 \; {\mathrm{(stat)}}$, which differs less than $2\,{\rm kHz}$ from the nominal result. 
 %This is another way to quantify the lineshape reproducibility uncertainty reported in Tab.~\ref{tab:results}.
@@ -818,7 +818,7 @@ A similar study was conducted using alternative radius cuts. Radius selections c
 \begin{tabular}{l||r|l||r|l}					
 \hline
 \hline								
-\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{Low field dataset}} & \multicolumn{2}{c}{\textbf{High field dataset}} \\
+\textbf{Configuration} & \multicolumn{2}{c||}{\textbf{\SI{1.03}{\tesla} dataset}} & \multicolumn{2}{c}{\textbf{\SI{1.07}{\tesla} dataset}} \\
  & $	\mu	\pm	\sigma \;({\rm kHz})$ & $	\bf{\Delta}	\;({\rm kHz})$ & $	\mu	\pm	\sigma	\;({\rm kHz}) $ & $	\bf{\Delta}	\;({\rm kHz})$ \\
 \hline
 \hline
@@ -838,7 +838,7 @@ $ |z|<5\,{\rm cm}$    & $9.65 \pm 1.7$ & $-1.2 $& $9.92 \pm 1.5$ & $ +1.0 $ \\
 \hline
 \hline
 \end{tabular}
-\caption{Comparison of the results with geometrical selections. The results reported in the table are {\bf \textcolor{red}{blind}}. The \textcolor{blue}{Nominal} value corresponds to the blind result of the analysis. The systematic shift is the result of the difference between the values reported in the nominal row and the other values reported in the following rows.}
+\caption{Comparison of the results with geometrical selections. The results reported in the table are blinded. The Nominal value corresponds to the blind result of the analysis. The systematic shift is the result of the difference between the values reported in the nominal row and the other values reported in the following rows.}
 \label{tab:selections}
 \end{table}
 
@@ -866,7 +866,7 @@ f_{hfs}^{(i)} = f_{da}^{(i)}(t + \delta t) - f_{cb}^{(i)}(t)
 To have a meaningful plot, the magnetic drift must be corrected. So $m \delta t$ is subtracted from each $f_{hfs}^{(i)}$, using the values of the slope obtained in \ref{tab:resultsBdrift}. The residuals are then computed with respect to the average value of the 16 points:
 
 \begin{equation}
-\Delta f^{(i)}_{drift corr.} = f_{hfs \; drift \; corr.}^{(i)} \sum_{i=1}^{i=15} \frac{f_{hfs \; drift \; corr.}^{(i)}}{n}
+\Delta f^{(i)}_{drift corr.} = f_{hfs \; drift \; corr.}^{(i)} \sum_{i=1}^{i=16} \frac{f_{hfs \; drift \; corr.}^{(i)}}{n}
 \end{equation}
 
 The residuals are plotted in figure \ref{fig:ResidualPlot}. The purpose is to demonstrate that there is no structured trend attributable to the magnetic field, which would otherwise suggest a dependence of the hyperfine splitting on the absolute magnetic field.
