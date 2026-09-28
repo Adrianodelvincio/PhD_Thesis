@@ -480,15 +480,15 @@ The $k$ result of the fit is 5.4, which has been used to evaluate a component of
 \label{fig:fitwithfloatingk}
 \end{figure}
 
-\subsubsection{Alternative "bare" model}
+\subsection{Alternative "bare" model}
 
 An alternative function has been used to evaluate systematic uncertainty about the function choice of the 'bare' model. The mathematical form of the model is:
 
 \begin{equation}
 \begin{dcases}
-0 \quad t^{'} = t - t_0 < 0 \\
-\frac{N_0}{\tau} \text{exp}( \dfrac{- t^{'} (t^{'} / T_{ramp} )^{\lambda}}{(\lambda + 1) \tau} ) \quad 0 \leq t^{'} = t - t_0 \leq T_{ramp}  \\
-\text{exp}(\dfrac{\lambda (T_{ramp} - t^{'}) - t^{'}}{(\lambda + 1) \tau})
+0 \quad \overline{x} < 0 \\
+\left(\frac{\overline{x}}{\sigma}\right)^k \text{exp}\left( - \left(\frac{\overline{x}}{\sigma}\right)^{k+1} \frac{\sigma}{\sigma_r}  \frac{1}{k + 1}\right) \quad 0 \leq \overline{x} \land  \overline{x} \leq \sigma  \\
+\text{exp}( \frac{\sigma}{\sigma_r} \left( \frac{k}{k+1}\right) \times \text{exp}(-\frac{\overline(x)}{\sigma_r}) \quad (\overline{x} \geq \sigma)
 \end{dcases}
 \end{equation}
 
@@ -540,9 +540,27 @@ all (shared)    &  $2.47 \pm 0.2$ & $1.23 \pm 0.3$ & $1.13 \pm 0.03 $ & $0.77 \p
  \end{tabular}
     \caption{Results of the fit to simulations in terms of $t_{gauss}$ for a Gaussian resolution function (see Eq.~\ref{GaussR}) and of $\tau$ for a Cusp resolution function (Eq.~\ref{CuspR}).}
     \label{tab:resfun}
-\end{table}    
+\end{table}
 
-\newpage
+\subsubsection{Doppler broadening}
+
+The simulations described in Sec.~\ref{sec:Simulation} do not include the Doppler effect, whose contribution to the broadening must therefore be estimated separately. Assuming a Maxwell-Boltzmann distribution for the energy of the trapped anti-atoms, and that only the component of the velocity along the direction of propagation of the microwave radiation contributes to the shift, the corresponding velocity ratio $\beta_z = v_z / c$ is normally distributed with standard deviation
+
+\begin{equation}
+\beta_z = \sqrt{\frac{k_B T}{m_{\overline{H}} c^{2}}} \, .
+\end{equation}
+
+For non-relativistic velocities the Doppler shift is $\Delta f = f - f_o = - |\beta_z| f_o$, where $f_o$ is the frequency delivered by the synthesizer. The absolute value accounts for the fact that the frequency scan is always performed from below, so that the resulting contribution to the resolution function is again one-sided, with width
+
+\begin{equation}
+\sigma_{Doppler} = \sqrt{\frac{k_B T}{m_{\overline{H}} c^{2}}} \; f_o \, .
+\end{equation}
+
+For $f_o \simeq \SI{30}{\giga \hertz}$ and an anti-atom energy distribution with a mean of $T \simeq \SI{0.36}{\kelvin}$, as measured in \cite{ALPHA:2024adiab}, this gives $\sigma_{Doppler} \simeq \SI{5}{\kilo \hertz}$; taking instead the full trap depth $T = \SI{0.5}{\kelvin}$, which is a conservative upper limit for the energy of the trapped sample, yields $\sigma_{Doppler} \simeq \SI{6}{\kilo \hertz}$.
+
+These values are smaller than, but of the same order as, the broadening $t_{gauss} = \SI{10}{\kilo \hertz}$ extracted from the simulations and used in the nominal fit. It is therefore worth stressing that this contribution is already covered by the systematic uncertainty assigned to the resolution function: adding it in quadrature to the simulation-derived value would give an effective width of \SI{11}{\kilo \hertz} to \SI{12}{\kilo \hertz}, which lies well inside the interval $t_{gauss} \in [7.0, 13.6]\,{\rm kHz}$ explored in Tab.~\ref{tab:results}, where the induced shift of the hyperfine splitting never exceeds \SI{1.1}{\kilo \hertz}. Moreover, the estimate above should be regarded as an upper bound, since it treats each anti-atom as if it sampled the microwave field with a fixed longitudinal velocity, whereas the field in the trap is a standing wave and each atom traverses it many times within a single \SI{8}{\second} frequency step, so that the first-order Doppler contribution is largely averaged out. \commento{riassumere qui in una frase l'argomento dell'elog ALPHA/33017}
+
+%\newpage
 
 \subsection{Reproducibility: shape variation during the experiment} \label{sec:Reproducibility}
 
@@ -550,7 +568,7 @@ A possible systematic uncertainty is linked with the assumption that the shape o
 
 The variation of the shape of the spectra is something expected during the measurement. There are a number of physical arguments that indicate this. At first, the energy distribution of the atom ensemble produced during the experiment can vary from repetition to repetition (although the anti-atoms are accumulated along 20 mixing cycles, and the final energy fluctuation is expected to be averaged over 20 cycles). More importantly, since the current of the main solenoid is drifting and decreasing over time, the microwave frequency must be adjusted to follow the magnetic field drift. Hence, the working point of the frequency scan changes from repetition to repetition. Following that, the microwave standing wave pattern can change, as well as the effective power delivered to the trap. Additionally, although the magnetic field profile could change during the measurement, both its on-axis profile (which can be monitored by ECR measurement) and its off-axis profile (which is unmonitored) can fluctuate due to current fluctuations in the magnets. The magnetic field profile is monitored using direct-current current transformers based on magnetometer sensors (ITZ 2000-SB FLEX ULTRASTAB from LEM International SA), and its value is used as input to PIDs that ensure the stability of each individual magnet (more details in Sec. \ref{sec:DCCTs}).
 
-Shape variations are expected to have a non-negligible impact on the measurement. As mentioned before, the correlation between the shape parameters and the frequency markers is strong (see Fig. \ref{fig:CorrelationHeatMap}). Hence, shape variations from repetition to repetition are expected to consistently change the extracted value. For this reason, the experimental protocol incorporated high-statistics reference measurements, which were used to estimate the magnitude of these variations. The high-statistics sample measurement has a statistical power 5-6 times that of a single repetition. These data have been fitted independently, with the same model used in the nominal Maximum Likelihood Fit. The parameters resulting from the fit are reported in table \ref{tab:highstatparam}.
+Shape variations are expected to have a non-negligible impact on the measurement. As mentioned before, the correlation between the shape parameters and the frequency markers is strong (see Fig. \ref{fig:CorrelationHeatMap}). Hence, shape variations from repetition to repetition are expected to consistently change the extracted value. For this reason, the experimental protocol incorporated high-statistics reference measurements, which were used to estimate the magnitude of these variations. The high-statistics sample measurement has a statistical power 5-6 times that of a single repetition. These data have been fitted independently, with the same model used in the nominal Maximum Likelihood Fit, and the results are shown in Fig. \ref{fig:FitTOHighStats}. The parameters resulting from the fit are reported in table \ref{tab:highstatparam}.
 
 \begin{table}[!h]
 \centering
@@ -585,7 +603,7 @@ duration of associated series (h) & $12$ & $11.75$ & $11.75$\\
 \label{tab:highstatparam}
 \end{table}
 
-These results can be used to evaluate the effect of shape variations on the inferred value of the hyperfine splitting. To estimate such uncertainty, only the {\it post} distributions have been used. Assuming a difference in shape in time, the 8 repetitions have been fitted with the model obtained from the high-statistics template, keeping all the shape parameters fixed to the ones obtained from the high-statistics templates. The full analysis procedure has been repeated and the hyperfine splitting obtained with this alternative approach has been compared with the standard approach to evaluate the systematic. 
+These results can be used to evaluate the effect of shape variations on the inferred value of the hyperfine splitting. To estimate such uncertainty, only the high statistic dataset acquired after the main eight repetitions (for simplicity indicated as {\it post} distributions) have been used. Assuming a difference in shape in time, the 8 repetitions have been fitted with the model obtained from the high-statistics template, keeping all the shape parameters fixed, except the frequency markers. The full analysis procedure has been repeated and the hyperfine splitting obtained with this alternative approach has been compared with the standard approach to evaluate the systematic. 
 Since the {\it post} data were collected about $\Delta t_{post} = 12$ hours after the middle of the Physics {\it Series}, which lasted about $T_{series} = 12$ hours (see Fig.~\ref{tab:ListOfRuns}), the difference in the result has been divided by 2 (considering that the Series extends $\pm T_{series}/2 \approx \pm \Delta t_{post}/2$ around the center of the Series). This estimate resulted in $\sim$ 4 kHz for Series 7 and $\sim$ 7 kHz for Series 8. The best-fit parameters for the high-statistics sample are reported in Tab.~\ref{tab:highstatparam}.
 
 Another cross-check has been performed comparing the result of the HFS measurement, once imposing a common rise (parameter $r$ in Eq.~\ref{eq:model1}) for the 8 repetitions (the way it is done for the measurement) and once leaving such parameter to vary across the 8 repetitions (see Fig.~\ref{fig:free_rise}) as described in Sec.~\ref{checks}. 
@@ -593,9 +611,10 @@ Another cross-check has been performed comparing the result of the HFS measureme
 
 \begin{sidewaysfigure}[hp]
 \centering
-\includegraphics[width=0.3\textwidth]{figures/chapter 4/s8_pre_v.png}%
-\includegraphics[width=0.3\textwidth]{figures/chapter 4/s8_post_v.png}%
-\includegraphics[width=0.3\textwidth]{figures/chapter 4/s7_post_v.png}%
+\includegraphics[width=5.2cm]{figures/chapter 4/s8_pre_v.png}  %
+\includegraphics[width=5.2cm]{figures/chapter 4/s8_post_v.png} %
+\includegraphics[width=5.2cm]{figures/chapter 4/s7_post_v.png} %
+\caption{High statistic dataset for the two magnetic field configuration of the experiment. The \textit{-post} label indicated that the dataset has been acquired after the nominal 8 repetitions, the \textit{-pre} indicated that the dataset has been acquired before the nominal 8 repetitions. The fit function (blue continuous line) is the best fit result with the same model in \ref{eq:model1}. This model constitutes a "template" used to estimate reproducibility uncertainty.}
 \label{fig:FitTOHighStats}
 \end{sidewaysfigure}
 
@@ -697,7 +716,7 @@ The simulation considers the displacement to be asymmetrical. This means that ne
 
 \subsection{Error Budget Table} \label{sec:ErrorBudgetSec}
 
-This section contains the error budget table, which contains all the alternative results of the analysis by the different methodologies that have been considered for systematic studies. The first row, indicated with \textit{Nominal,("common fit" linear GLS)}, represents the final analysis result with the nominal parameters and methodology. The reported result is blinded, and the frequency separation used during the experiment (the separation between the \cb and \da microwave sweeps), which is equal to \SI{1420390}{\kilo \hertz}, is not added to the final result. All the remaining rows represent different analysis methodologies that have been considered to estimate the various systematic uncertainties. All results are blinded using the same blinding value, so that they all share a common offset and can therefore be directly compared; they are grouped into separate sections, according to the specific effect each alternative approach is intended to address. The systematic uncertainty is estimated from the difference between the \textit{Nominal} result and the alternative approach. This difference has been reported for each alternative approach in a separate column indicated with \textbf{\Delta}. For each sub-group, the maximum difference has been taken as the nominal systematic uncertainty, and is reported in summary Tab. \ref{tab:syst}. The last column contains the combination of the two series, and the results are obtained by the weighted mean of the results of the two series using the statistical error as weight.
+This section contains the error budget table, which contains all the alternative results of the analysis by the different methodologies that have been considered for systematic studies. The first row, indicated with \textit{Nominal,("common fit" linear GLS)}, represents the final analysis result with the nominal parameters and methodology. The reported result is blinded, and the frequency separation used during the experiment (the separation between the \cb and \da microwave sweeps), which is equal to \SI{1420390}{\kilo \hertz}, is not added to the final result. All the remaining rows represent different analysis methodologies that have been considered to estimate the various systematic uncertainties. All results are blinded using the same blinding value, so that they all share a common offset and can therefore be directly compared; they are grouped into separate sections, according to the specific effect each alternative approach is intended to address. The systematic uncertainty is estimated from the difference between the \textit{Nominal} result and the alternative approach. This difference has been reported for each alternative approach in a separate column indicated with \textbf{$\Delta$}. For each sub-group, the maximum difference has been taken as the nominal systematic uncertainty, and is reported in summary Tab. \ref{tab:syst}. The last column contains the combination of the two series, and the results are obtained by the weighted mean of the results of the two series using the statistical error as weight.
 
 \begin{table}[!h]																			
 \small 
@@ -765,7 +784,7 @@ Nominal without $\mu$w transition veto	   & $10.93 \pm 1.7 $  & $ 0.1 $    & $8.
 \hline
 \end{tabular}
 }
-\caption{Results of the nominal maximum likelihood fit. The results are blind (see equation \ref{eq:deltaf}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the {\bf \textcolor{blue}{nominal fits}} are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
+\caption{Results of the nominal maximum likelihood fit. The results are blind (see equation \ref{eq:deltaf}). For the alternative configurations used to evaluate the systematic uncertainties, the difference $\Delta$ with respect to the results of the nominal fits are reported. The $\Delta$ values shown in {\bf bold}, are the ones summed in quadrature to obtain the total systematic uncertainty reported in Tab.~\ref{tab:syst}.
 \label{tab:results}}								
 \end{table}
 
@@ -866,7 +885,7 @@ f_{hfs}^{(i)} = f_{da}^{(i)}(t + \delta t) - f_{cb}^{(i)}(t)
 To have a meaningful plot, the magnetic drift must be corrected. So $m \delta t$ is subtracted from each $f_{hfs}^{(i)}$, using the values of the slope obtained in \ref{tab:resultsBdrift}. The residuals are then computed with respect to the average value of the 16 points:
 
 \begin{equation}
-\Delta f^{(i)}_{drift corr.} = f_{hfs \; drift \; corr.}^{(i)} \sum_{i=1}^{i=16} \frac{f_{hfs \; drift \; corr.}^{(i)}}{n}
+\Delta f^{(i)}_{drift corr.} = f_{hfs \; drift \; corr.}^{(i)} - \sum_{j=1}^{j=16} \frac{f_{hfs \; drift \; corr.}^{(j)}}{n}
 \end{equation}
 
 The residuals are plotted in figure \ref{fig:ResidualPlot}. The purpose is to demonstrate that there is no structured trend attributable to the magnetic field, which would otherwise suggest a dependence of the hyperfine splitting on the absolute magnetic field.
