@@ -81,9 +81,9 @@ Bare function ({\it uncertainty increase})     & 3.4 & 3.0 & 2.1\\
 Resolution function ({\it choice})             & 0.3 & 0.6 & 1.1\\
 Resolution function ({\it frequency marker})   & 3.5 & 3.5 & 3.4\\
 \hline
-B-drift ({\it fit procedure})                            & 2.3 & 0.5 & 0.7\\
+B-drift ({\it fit procedure})                  & 2.3 & 0.5 & 0.7\\
 %\hline
-B-drift ({\it long time scale linearity})                  & 0.3 & 0.1 & 0.2\\
+B-drift ({\it long time scale linearity})      & 0.3 & 0.1 & 0.2\\
 %\hline
 B-drift ({\it short time scale linearity}) & 1.1 & 1.1 & 1.1\\
 \hline
@@ -97,6 +97,16 @@ Data selection and binning               & 2.0 & 2.0 & 2.0\\
 \label{tab:syst}}
 \end{table}
 
+
+\section{Comparison with the 2017 measurement} \label{sec:comparison2017}
+
+The present result improves on the first measurement of the antihydrogen ground-state hyperfine splitting, $1\,420.4 \pm 0.5$~MHz \cite{ALPHA:2017fsh}, by about two orders of magnitude. The gain does not come from a single change, and it is useful to separate the improvements in the experimental conditions from those in the analysis.
+
+On the experimental side, the 2017 measurement was based on 194 detected atoms collected in 22 trials over three days, with \SI{300}{\kilo\hertz} frequency steps of \SI{4}{\second} each, in an unflattened trapping field \cite{ALPHA:2017fsh}. The present one uses about 24\,000 atoms, accumulated with the Be$^+$-assisted scheme \cite{Akbari:2025mli}, \SI{5}{\kilo\hertz} steps of \SI{8}{\second}, and a magnetic field profile whose second axial derivative is about 20 times smaller \cite{ALPHA:2026lbu}, which increases the interaction time of the atoms with the microwaves near the field minimum (Sec.~\ref{sec:MagFieldProfile}). The microwave power at the two transitions was balanced with dedicated lineshape studies, and the field drift was characterized with ECR and corrected with a common fit to the 16 frequency markers of each series. In 2017, each of the field drift during the scan, the combination of data from different days and the determination of the onsets contributed \SI{0.3}{\mega\hertz} to the uncertainty \cite{ALPHA:2017fsh}.
+
+On the analysis side, the main change is in the definition of the frequency marker. In 2017 the splitting was obtained from the difference between the low-frequency onsets of the two lines. With the present statistics and resolution this is not sufficient: the onset of the observed lineshape is not the resonance at the field minimum, but is displaced by the broadening mechanisms discussed in Ch.~\ref{ch:analysis}, and the displacement can differ between the two transitions. Identifying the need for a marker that accounts for this physics, i.e.\ extrapolated back from the observed rising edge and defined consistently with the broadening, was the first and most important step, and it had not been considered in the previous measurement.
+
+The second step was the choice of the method to implement it. During the preliminary phase of the analysis, which preceded the data taking itself, the statistical and systematic performance of different strategies was studied with Monte Carlo pseudo-experiments. These studies showed that a simple threshold-crossing criterion, in which the onset is identified as the first frequency bin with more than one count followed by a bin with more than two counts, is not robust for a dataset of this kind, and that among the algorithms tested the one used in the previous analysis gave the worst performance. Other approaches would have been possible, for instance a constant-fraction crossing followed by a correction for the broadening, but fitting the spectra directly with a lineshape model convolved with a resolution function turned out to be more convenient: the fit incorporates the onset definition, the broadening and the background in a single procedure, which makes it possible to study all the systematic uncertainties in a unified way (Ch.~\ref{ch:analysis}).
 
 \section{CPT, outlook} \label{sec:outlookthesis}
 

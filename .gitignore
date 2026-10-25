@@ -5,4 +5,14 @@ Thesis.out
 #Thesis.pdf
 Thesis.run.xml
 Thesis.tex.blg
-Thesis.toc
+Thesis.tocPapers/ 
+Notes/ 
+*.log 
+*.aux 
+*.pdf 
+*.toc 
+*.lof 
+*.lot 
+*.out 
+*.bcf 
+*.xml 

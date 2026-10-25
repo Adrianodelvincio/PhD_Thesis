@@ -226,6 +226,8 @@ f_{da}^{i} \equiv  f_{da}^{i} (t_{i}) +  \delta f_{blinding}
 
 Consequently, the hyperfine splitting extracted from both series was shifted by the same unknown quantity. This offset was revealed only when all the systematic uncertainties had been determined and a common consensus of the analysis procedure had been reached among ALPHA collaboration members.
 
+Throughout this chapter the following convention is adopted. Absolute values of the hyperfine splitting quoted in tables (Tabs.~\ref{tab:results}, \ref{tab:selections}, \ref{tab:highstat_floatk}, \ref{tab:highstatparam}) are blind, and do not include the separation of \SI{1420390}{\kilo\hertz} between the \cb and \da sweeps. Quantities that are differences between analysis configurations ($\Delta$ columns, Tab.~\ref{tab:syst}), residuals and drift slopes (Tab.~\ref{tab:resultsBdrift}) do not depend on the blinding offset. Values quoted in full (e.g.\ $1\,420\,404.8$~kHz) are unblinded.
+
 \subsection{Correlation between observables}
 
 The combined \textit{MLE} fit approach, used to analyze the spectra, offers several advantages. First, it reduces model complexity by allowing certain parameters to be shared across different datasets rather than fitted independently for each. Second, shape parameters like $\sigma_{rise}$ and $n_r$ benefit from the increased statistical power, as a consequence of being treated as global parameters. On the other hand, this approach introduces correlations between parameters -in particular the frequency markers- that must be carefully accounted for when deriving statistical uncertainties. Figure \ref{fig:CorrelationHeatMap} shows the correlation heat map of the \textit{MLE} fit of the low-field series. As evident from the map, $\sigma_{cb}$ and $\sigma_{da}$, which control the onset shape of the spectra, are correlated with the frequency markers. This correlation arises because the shape parameters are constrained to be identical across repetitions, which in turn constrains the fitted frequency markers.
@@ -626,7 +628,7 @@ Uncertainties can be introduced due to the time of flight of the anti-hydrogen b
 Binning is also a source of systematic uncertainties. All the $cb$ and $da$ scans are in fact separated by a fixed frequency difference $\delta f_{window} = 1\,420\,390\,{\rm kHz}$, which is a multiple of the $\delta_{bin} = 5\,{\rm kHz}$ frequency step. The binning chosen for the nominal analysis is aligned to the frequency step for both transitions, and the starts of the two histograms are separated by  $\delta f_{window}$. Due to the discrete nature of the scan, different choices of the binning start would have resulted in the same histograms, e.g., by starting the binning of any transition up to $\delta_{bin} -\varepsilon$ later ($\varepsilon$ is an arbitrarily small number). We assign a systematic uncertainty of $\frac{\sqrt{2}\delta_{bin}}{\sqrt{12}} = 2.0\,{\rm kHz}$ to account for this degeneracy.
 
 
-\subsection{Short Term Upward Drift}
+\subsection{Short Term Upward Drift} \label{sec:ShortDrift}
 
 The long-term linear drift is not the only effect requiring careful treatment. A short-term upward drift may also occur during the experiment. This is expected because the accumulation and stacking phase between repetitions involves changes to the beam-line magnets. Although the main solenoid magnets and mirror coil currents are not changed during this operation, the beam-line magnets must be changed, for the plasma manipulation and transport from the catching region to the atom trap. Parasitic currents could be induced in the solenoid through mutual coupling, producing a magnetic field shift distinct from the linear drift. Since the experiment is based on a \cb transition followed by a \da transition, an induced shift in the magnetic field is directly related to a systematic shift of all the \da transitions due to the Zeeman effect. Hence, a systematic shift in the splitting of the transition is expected, which is unrelated to the physical splitting.
 
@@ -862,7 +864,7 @@ $ |z|<5\,{\rm cm}$    & $9.65 \pm 1.7$ & $-1.2 $& $9.92 \pm 1.5$ & $ +1.0 $ \\
 \end{table}
 
 
-\begin{figure}[hbtp]
+\begin{figure}[!hbtp]
 \centering
 \includegraphics[width = \textwidth]{figures/chapter 4/Z_s7.pdf} \\
 \includegraphics[width = \textwidth]{figures/chapter 4/Z_s8.pdf}
@@ -893,7 +895,7 @@ The residuals are plotted in figure \ref{fig:ResidualPlot}. The purpose is to de
 \begin{figure}[!hbtp]
 \centering
 \includegraphics[width= \textwidth]{figures/chapter 4/hfspairs.png}
-\caption{Pair splitting residuals for each repetition for the two sets of data. The residuals $\Delta f^{(i)}$ are corrected for the magnetic field drift and are computed with respect to the common average of the 16 repetitions.}
+\caption{Pair splitting residuals for each repetition for the two sets of data. The residuals $\Delta f^{(i)} = f^{(i)}_{da} - f^{(i)}_{cb}$ are corrected for the magnetic field drift and plotted with respect to the common average of both transitions (average over 16 values). The \textit{uncertainty} bands shown, where blue is for the statistical and red for the systematic, refers to the quadrature sum of the statistical uncertainty of $f^{(i)}_{da};f^{(i)}_{cb}$ (reported in Tab. \ref{tab:resultsf0}), and total systematic uncertainty of specific data-set (reported in Tab. \ref{tab:syst}), respectively.}
 \label{fig:ResidualPlot}
 \end{figure}
 
