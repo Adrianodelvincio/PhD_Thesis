@@ -6,24 +6,50 @@ In the previous chapter we have presented the data analysis that was performed o
 The hyperfine splitting has been measured for the two different datasets, and the final results are:
 
 \begin{equation*}
-\nu^{high field}_{\overline{H}} = 1420405.8 \pm 1.7 \pm 7.0 \, kHz
+a^{\text{high field}}_{1S}/h = 1420405.8 \pm 1.7\,(\text{stat}) \pm 7.0\,(\text{syst}) \; \text{kHz}
 \end{equation*}
 
 for the dataset taken at higher magnetic field values (\SI{1.07}{\tesla}), while 
 
 \begin{equation*}
-\nu^{high field}_{\overline{H}} = 1420403.9 \pm 1.5 \pm 8.8 \, kHz
+a^{\text{low field}}_{1S}/h = 1420403.9 \pm 1.5\,(\text{stat}) \pm 8.8\,(\text{syst}) \; \text{kHz}
 \end{equation*}
 
-for the dataset taken at lower magnetic field values (\SI{1.03}{\tesla}). The results have been statistically combined, with a weighted mean, also computing the combined systematic error of the two series (as explained in Sec. \ref{sec:ErrorBudgetSec}). This result represents the most precise determination of the hyperfine splitting of the ground state of the antihydrogen atom. This experimental result has been published in the journal Nature \cite{ALPHA:2026lbu}. The combined result is
+for the dataset taken at lower magnetic field values (\SI{1.03}{\tesla}). The results have been statistically combined, with a weighted mean, also computing the combined systematic error of the two series (as explained in Sec.~\ref{sec:ErrorBudgetSec}). This result represents the most precise determination of the hyperfine splitting of the ground state of the antihydrogen atom. This experimental result has been published in Nature \cite{ALPHA:2026lbu}. The combined result is
 
 \begin{equation*}
-\nu_{\overline{H}} = 1420404.8 \pm 1.1 \pm 5.6 \, kHz
-\end{equation*} 
+a_{1S}/h = 1420404.8 \pm 1.1\,(\text{stat}) \pm 5.6\,(\text{syst}) \; \text{kHz}
+\end{equation*}
+
+\subsection{Residuals}
+
+In this section we report the residuals of the measured splitting of each repetition individually. The plot contains 16 points, 8 for the low field series and 8 for the high field series. The x-axis contains the microwave frequency of the first bin of the scan for the \cb transition $f_{cb}^{(i)}$. The zero on the x-axis corresponds to the mean value of the 16 $f_{cb}^{(i)}$ points. The 8 points on the left represent the 8 repetitions of the low field series, while the 8 points on the right belong to the series at high field. Given in frequency units, the distance between the two series is about \SI{1.190}{\giga\hertz}.
+
+Each individual splitting can be written as:
+
+\begin{equation}
+a_{1S}^{(i)}/h = f_{da}^{(i)}(t + \delta t) - f_{cb}^{(i)}(t)
+\end{equation}
+ 
+To have a meaningful plot, the magnetic drift must be corrected. So $m \delta t$ is subtracted from each $a_{1S}^{(i)}/h$, giving the drift-corrected values $a_{1S,\,corr.}^{(i)}/h$, using the values of the slope obtained in Tab.~\ref{tab:resultsBdrift}. The residuals are then computed with respect to the average value of the 16 points:
+
+\begin{equation}
+\Delta f^{(i)}_{drift corr.} = \frac{a_{1S,\,corr.}^{(i)}}{h} - \frac{1}{n} \sum_{j=1}^{j=16} \frac{a_{1S,\,corr.}^{(j)}}{h}
+\end{equation}
+
+The residuals are plotted in Fig.~\ref{fig:ResidualPlot}. The purpose is to demonstrate that there is no structured trend attributable to the magnetic field, which would otherwise suggest a dependence of the hyperfine splitting on the absolute magnetic field.
+
+\begin{figure}[!hbtp]
+\centering
+\includegraphics[width= \textwidth]{figures/chapter 4/hfspairs.png}
+\caption{Pair splitting residuals for each repetition for the two sets of data. The residuals $\Delta f^{(i)} = f^{(i)}_{da} - f^{(i)}_{cb}$ are corrected for the magnetic field drift and plotted with respect to the common average of both transitions (average over 16 values). 
+The \textit{uncertainty} bands shown, where blue is for the statistical and red for the systematic one, refers (respectively) to the quadrature sum of the stat. uncertainty of $f^{(i)}_{da}, f^{(i)}_{cb}$ (reported in Tab.~\ref{tab:resultsf0}, with a CL of 68 \%), and the combined systematic uncertainty of the individual data-set (reported in Tab.~\ref{tab:syst}).}
+\label{fig:ResidualPlot}
+\end{figure}
 
 \section{Table of Results}
 
-Tab \ref{tab:resultsBdrift} contains the numerical values of the residuals from the linear common fit extraction, as discussed in Sec. \ref{sec:CommonFitExtraction}. The table contains the magnetic field decay $m$ determined with the two methods ("common" fit and "split" method), with the first one used in the nominal approach and the latter for systematic evaluation.
+Tab.~\ref{tab:resultsBdrift} contains the numerical values of the residuals from the linear common fit extraction, as discussed in Sec.~\ref{sec:CommonFitExtraction}. The table contains the magnetic field decay $m$ determined with the two methods (``common'' fit and ``split'' method, see Sec.~\ref{sec:decaySystematic}), with the first one used in the nominal approach and the latter for systematic evaluation.
 
 \begin{table}[h]
 \centering
@@ -60,7 +86,7 @@ $m_{split}$ (kHz/h) & $-75.3 \pm 0.1$  & $-75.9 \pm 0.1$ & $-73.0 \pm 0.1$ & $-7
 
 \subsection{Uncertainty Table}
 
-The Tab. \ref{tab:syst} summarizes all the main uncertainties, which have been determined by selecting the greatest contribution from every block in the error budget table \ref{sec:ErrorBudgetSec}. The total systematic uncertainty has been determined as the quadrature sum of each individual contribution. The combination of the two analyzed dataset has been obtained from the sum of the individual shift of each row in \ref{sec:ErrorBudgetSec}, and the total systematic uncertainty of \SI{5.6}{\kilo \hertz} is the resulting from the quadrature sum of each individual contribution. This procedure has been followed to consider possible correlation between the uncertainty of each dataset. The final uncertainty can also be estimated considering the error propagation formula of two independent measurement $$\bar{x} = \frac{x/\sigma_x^2 + y/\sigma_y^2}{1/\sigma_x^2 + 1/\sigma_y^2}, \qquad \sigma_{\bar{x}} = \left(\frac{1}{\sigma_x^2} + \frac{1}{\sigma_y^2}\right)^{-1/2}$$
+Tab.~\ref{tab:syst} summarizes all the main uncertainties, which have been determined by selecting the greatest contribution from every block in the error budget table (Tab.~\ref{tab:results}). The total systematic uncertainty has been determined as the quadrature sum of each individual contribution. The combination of the two analyzed dataset has been obtained from the sum of the individual shift of each row in Tab.~\ref{tab:results}, and the total systematic uncertainty of \SI{5.6}{\kilo \hertz} is the resulting from the quadrature sum of each individual contribution. This procedure has been followed to consider possible correlation between the uncertainty of each dataset. The final uncertainty can also be estimated considering the error propagation formula of two independent measurement $$\bar{x} = \frac{x/\sigma_x^2 + y/\sigma_y^2}{1/\sigma_x^2 + 1/\sigma_y^2}, \qquad \sigma_{\bar{x}} = \left(\frac{1}{\sigma_x^2} + \frac{1}{\sigma_y^2}\right)^{-1/2}$$
 
 the result considering uncorrelation is $\sigma_{TOT} = 5.5 $ kHz, in agreement with the nominal estimation of $5.6$ kHz.
 
@@ -104,29 +130,82 @@ The present result improves on the first measurement of the antihydrogen ground-
 
 On the experimental side, the 2017 measurement was based on 194 detected atoms collected in 22 trials over three days, with \SI{300}{\kilo\hertz} frequency steps of \SI{4}{\second} each, in an unflattened trapping field \cite{ALPHA:2017fsh}. The present one uses about 24\,000 atoms, accumulated with the Be$^+$-assisted scheme \cite{Akbari:2025mli}, \SI{5}{\kilo\hertz} steps of \SI{8}{\second}, and a magnetic field profile whose second axial derivative is about 20 times smaller \cite{ALPHA:2026lbu}, which increases the interaction time of the atoms with the microwaves near the field minimum (Sec.~\ref{sec:MagFieldProfile}). The microwave power at the two transitions was balanced with dedicated lineshape studies, and the field drift was characterized with ECR and corrected with a common fit to the 16 frequency markers of each series. In 2017, each of the field drift during the scan, the combination of data from different days and the determination of the onsets contributed \SI{0.3}{\mega\hertz} to the uncertainty \cite{ALPHA:2017fsh}.
 
-On the analysis side, the main change is in the definition of the frequency marker. In 2017 the splitting was obtained from the difference between the low-frequency onsets of the two lines. With the present statistics and resolution this is not sufficient: the onset of the observed lineshape is not the resonance at the field minimum, but is displaced by the broadening mechanisms discussed in Ch.~\ref{ch:analysis}, and the displacement can differ between the two transitions. Identifying the need for a marker that accounts for this physics, i.e.\ extrapolated back from the observed rising edge and defined consistently with the broadening, was the first and most important step, and it had not been considered in the previous measurement.
+On the analysis side, the main change is in the definition of the frequency marker. In 2017 the splitting was obtained from the difference between the low-frequency onsets of the two lines. With the present statistics and resolution this is not sufficient: the onset of the observed lineshape is not the resonance at the field minimum, but is displaced by the broadening mechanisms discussed in Chapter~\ref{ch:analysis}, and the displacement can differ between the two transitions. Identifying the need for a marker that accounts for this physics, i.e.\ extrapolated back from the observed rising edge and defined consistently with the broadening, was the first and most important step, and it had not been considered in the previous measurement.
 
-The second step was the choice of the method to implement it. During the preliminary phase of the analysis, which preceded the data taking itself, the statistical and systematic performance of different strategies was studied with Monte Carlo pseudo-experiments. These studies showed that a simple threshold-crossing criterion, in which the onset is identified as the first frequency bin with more than one count followed by a bin with more than two counts, is not robust for a dataset of this kind, and that among the algorithms tested the one used in the previous analysis gave the worst performance. Other approaches would have been possible, for instance a constant-fraction crossing followed by a correction for the broadening, but fitting the spectra directly with a lineshape model convolved with a resolution function turned out to be more convenient: the fit incorporates the onset definition, the broadening and the background in a single procedure, which makes it possible to study all the systematic uncertainties in a unified way (Ch.~\ref{ch:analysis}).
+The second step was the choice of the method to implement it. During the preliminary phase of the analysis, which preceded the data taking itself, the statistical and systematic performance of different strategies was studied with Monte Carlo pseudo-experiments. These studies showed that a simple threshold-crossing criterion, in which the onset is identified as the first frequency bin with more than one count followed by a bin with more than two counts, is not robust for a dataset of this kind, and that among the algorithms tested the one used in the previous analysis gave the worst performance. Other approaches would have been possible, for instance a constant-fraction crossing followed by a correction for the broadening, but fitting the spectra directly with a lineshape model convolved with a resolution function turned out to be more convenient: the fit incorporates the onset definition, the broadening and the background in a single procedure, which makes it possible to study all the systematic uncertainties in a unified way (Chapter~\ref{ch:analysis}).
 
 \section{CPT, outlook} \label{sec:outlookthesis}
 
 This recent result from the \ALPHA collaboration allows a direct comparison with the most precise determination of the ground state hyperfine level on hydrogen for testing CPT invariance in a model-independent test. While the agreement between the antihydrogen and hydrogen ground-state hyperfine splitting constitutes a stringent, model-independent test of CPT symmetry, any measurable discrepancy would directly signal CPT violation, without reference to any specific theoretical framework. Considering the current uncertainty of the measurement, dominated by the \SI{5.6}{\kilo \hertz} systematic contribution, one can directly determine:
 
 \begin{equation}
-\frac{\delta \nu_{\overline{H}}}{\nu_{\overline{H}}} = \frac{5.6 \; kHz}{1420404.8 \; kHz} \approx 4 \times 10^{-6} 
+\frac{\delta a_{1S}^{\overline{\mathrm{H}}}}{a_{1S}^{\overline{\mathrm{H}}}} =\frac{5.6 \; kHz}{1420404.8 \; kHz} \approx 4 \times 10^{-6} 
 \end{equation}
 
-At the current 4 ppm level of precision, the uncertainty on the antihydrogen ground state hyperfine splitting is now well below the corrections arising from the charge and magnetization distribution of the antiproton, analogous to the well-known proton structure (Zemach radius) which for hydrogen causes a finite size shift of about $-32$ ppm \cite{Widmann_2022,PhysRevA.78.022517}. It is possible to disentangle nuclear structure correction with pure QED contributions by using a separate measurement, the hyperfine splitting of the 2S energy level. The difference $D_{21} = 8 \Delta E_{hfs}(2S) - \Delta E_{hfs}(1S)$, which is called Sternheim interval, has the property of largely cancelling out the nuclear structure terms, isolating an independent quantity for precision QED tests \cite{Sternheim:1963zz}. With this most recent result, the Sternheim interval for antihydrogen has been determined with a new precision:
+At the current 4 ppm level of precision, the uncertainty on the antihydrogen ground state hyperfine splitting is now well below the corrections arising from the charge and magnetization distribution of the antiproton, analogous to the well-known proton structure (Zemach radius) which for hydrogen causes a finite size shift of about $-32$ ppm \cite{Widmann_2022,PhysRevA.78.022517}. It is possible to disentangle nuclear structure correction with pure QED contributions by using a separate measurement, the hyperfine splitting of the 2S energy level. The difference $D_{21} = 8 a_{2S} - a_{1S}$, which is called Sternheim interval, has the property of largely cancelling out the nuclear structure terms, isolating an independent quantity for precision QED tests \cite{Sternheim:1963zz}. With this most recent result, the Sternheim interval for antihydrogen has been determined with a new precision:
 
 \begin{equation*}
-(8 \Delta E_{hfs}(2S) - \Delta E_{hfs}(1S)) / h = 100 \pm 150 \; kHz
+(8 a_{2S} - a_{1S}) / h = 100 \pm 150 \; kHz
 \end{equation*}
 
-where the precision is now limited by the measurement of the $\nu_{2S, \overline{H}}$ splitting, which is $\nu_{2S,\overline{H}} = 177563 \pm 18$ kHz \cite{ALPHA:2026lbu}. The latter was first determined by combining laser spectroscopy of the two accessible hyperfine components of the 1S-2S transition with the previous \ALPHA determination of the ground-state splitting; the present result improves it by a factor 26, \cite{Baker:2025hfs,ALPHA:2026lbu}. The current determination on hydrogen, predicted by QED, leads to $48.9592 \pm 0.0068 \; kHz$ \cite{PhysRevLett.130.203001}, and shows good agreement with the new determination on antihydrogen.
+where the precision is now limited by the measurement of the 2S hyperfine splitting, which is $a_{2S}/h = 177563 \pm 18$ kHz \cite{ALPHA:2026lbu}. The latter was first determined by combining laser spectroscopy of the two accessible hyperfine components of the 1S-2S transition with the previous \ALPHA determination of the ground-state splitting; the present result improves it by a factor 26, \cite{Baker:2025hfs,ALPHA:2026lbu}. The current determination on hydrogen, predicted by QED, leads to $48.9592 \pm 0.0068 \; kHz$ \cite{PhysRevLett.130.203001}, and shows good agreement with the new determination on antihydrogen.
 
-Within the Standard-Model Extension (SME) \cite{ColladayKostelecky1997,ColladayKostelecky1998}, however, the observable reported here has no leading-order sensitivity to Lorentz- or CPT-violating coefficients, and this is a direct consequence of the way it is constructed: the transitions exploited drive the atom from a trapped, low-field-seeking state into an untrapped, high-field-seeking one, and the hyperfine constant is obtained by combining two such field-dependent resonances so as to cancel the local trapping field. The sensitivity of hydrogen and antihydrogen transitions to the various SME coefficients, including the ground-state Zeeman-hyperfine transitions studied in this work, was investigated in \cite{Bluhm_1999,Kostelecky:2015nma}. 
+Within the Standard-Model Extension (SME) \cite{ColladayKostelecky1997,ColladayKostelecky1998}, however, the observable reported here has no leading-order sensitivity to Lorentz- or CPT-violating coefficients, and this is a direct consequence of the way it is constructed: the transitions exploited drive the atom from a trapped, low-field-seeking state into an untrapped, high-field-seeking one, and the hyperfine constant is obtained by combining two such field-dependent resonances so as to cancel the local trapping field. The sensitivity of hydrogen and antihydrogen transitions to the various SME coefficients, including the ground-state Zeeman-hyperfine transitions studied in this work, was investigated in \cite{Bluhm_1999,Kostelecky:2015nma}.
 
-At leading order, the spin-dependent SME operators act on the 1S manifold as one-body perturbations, $\delta H = 2X_e S_z + 2X_p I_z$, with $X_w = -b^w_3 + d^w_{30} m_w + H^w_{12}$ for hydrogen and $b^w_3 \to -b^w_3$ for antihydrogen when the states are labelled, as here, by their energy ordering in the field \cite{Bluhm_1999}\footnote{The coefficient substitution quoted below Eq.~(2) of Ref.~\cite{Bluhm_1999} reads instead $a^w_\mu \to -a^w_\mu$, $d^w_{\mu\nu} \to -d^w_{\mu\nu}$, $H^w_{\mu\nu} \to -H^w_{\mu\nu}$, and refers to the $\ket{m_J,m_I}$ labelling. Since the magnetic moment of the positron is parallel to its spin, the energy ordering of the antihydrogen sublevels is reversed with respect to hydrogen; combining the two effects gives the net sign change of $b^w_3$ quoted here, as stated in Ref.~\cite{Bluhm_1999} for the mixed states $\ket{a}$ and $\ket{c}$.}; the spin-independent coefficients ($a^w_0$, $c^w_{00}$) shift all four sublevels equally. Each spin-dependent term is thus formally an additional, fixed-in-space Zeeman field acting on one spin only. Since $f_{da} - f_{cb} = A\hbar/2\pi$ holds for arbitrary Zeeman couplings of the two spins (see the general expressions retaining the antiproton Zeeman term $\omega_n I_z$ at the end of Ch.~\ref{ch:hyperfine}), the SME terms cancel in the difference for the same reason the trapping field does: $f_{da}$ and $f_{cb}$ shift by the same amount, $[X_e(1+\hat\kappa) + X_p(1-\hat\kappa)]/h$ with $\hat\kappa = \cos 2\theta_1$ the spin-mixing parameter of the $\ket{a}$ and $\ket{c}$ states, at any value of the magnetic field. Consistently with this, $f_{da}-f_{cb}$ coincides with the zero-field $\ket{F=1,m_F=0} \leftrightarrow \ket{F=0,m_F=0}$ maser transition, which is shown in \cite{Kostelecky:2015nma} to be insensitive to propagation-type Lorentz violation for operators of any mass dimension, since only transitions with $\Delta m_F \neq 0$ acquire leading-order shifts. The hydrogen--antihydrogen agreement reported here therefore tests the equality of the bound-state magnetic interaction, including the antiproton finite-size contribution discussed above, but does not constrain at leading order any of the SME coefficients considered in \cite{Bluhm_1999,Kostelecky:2015nma}.
+\subsection{SME coefficients and hyperfine measurement}
+
+To provide better context, we firstly introduce the modified Dirac equation for the spectra of free $\bm{H}$ and $\bm{\overline{H}}$. This is useful to introduce the specific coefficients towards which a potential comparison between hydrogen and antihydrogen is sensitive to. The modified Dirac equation for an electron/positron field is the following:
+
+\begin{equation}
+(i \gamma^{\mu} - m_{e} - a^{e}_{\mu} \gamma^{\mu} - b^{e}_{\mu} \gamma_{5}\gamma^{\mu} - 1/2 H^{e}_{\mu \nu} \sigma^{\mu \nu} + i c^{e}_{\mu \nu} \gamma^{\mu} D^{\nu} + i d^{e}_{\mu \nu} \gamma_{5}\gamma^{\mu} D^{\nu})\psi = 0
+\end{equation}
+
+It is beyond the scope of the thesis to give a physical explanation of each new term appearing in the modified Dirac equation, but it is important to highlight what are the consequence of the presence of these new terms: for $a^{e}_{\mu}$ and $b^{e}_{\mu}$, they directly violate CPT symmetry, and all the five terms $a^{e}_{\mu},b^{e}_{\mu},H^{e}_{\mu \nu},c^{e}_{\mu \nu},d^{e}_{\mu \nu}$ break Lorentz invariance. A similar equation with corresponding new terms (that will be indicated with apex ``\textit{p}'' instead of ``\textit{e}'') also exists for a free antiproton.
+
+The presence of these extra-terms produces a shift in the energy levels of hydrogen and antihydrogen. For the hydrogen case, a general formula for the 1S and 2S energy levels is:
+
+\begin{align}
+\Delta E^{H} \approx &(a_{0}^{e} + a_{0}^{p} - c^{e}_{00} m_{e} - c^{p}_{00} m_{p}) \\
+ & + (-b^{e}_{3} + d^{e}_{30} m_{e} + H^{e}_{12}) \frac{m_{J}}{|m_{J}|} \\
+ & + (-b^{p}_{3} + d^{p}_{30} m_{e} + H^{p}_{12}) \frac{m_{I}}{|m_{I}|}
+\end{align}
+
+where $J$ and $I$ are the electronic and protonic angular momenta. The formula can be adapted to describe the energy shifts for the antihydrogen atoms, by changing the sign of $a{e/p}_{\mu}$, $d^{e/p}_{\mu}$ and $H^{e/p}_{\mu \nu}$.
+
+The terms in the first line do not depend on the orientation of the spins: the coefficients $a^w_0$ and $c^w_{00}$ (with $w = e, p$) shift all the hyperfine sublevels of the atom by the same amount, and therefore cancel in any transition between them. The other two lines are the ones relevant for hyperfine spectroscopy. Each of them is the product of a combination of SME coefficients and of the sign of a spin projection along the quantization axis, $m_J/|m_J| = \pm 1$ for the electron and $m_I/|m_I| = \pm 1$ for the proton; the quantization axis is the direction of the magnetic field, and the index 3 denotes the component of the coefficients along it. It is convenient to collect the two combinations in
+
+\begin{equation}
+X_e = -b^e_3 + d^e_{30} m_e + H^e_{12}, \qquad X_p = -b^p_3 + d^p_{30} m_p + H^p_{12},
+\label{eq:SMEXdef}
+\end{equation}
+
+so that the spin-dependent part of the shift reads simply $X_e\, m_J/|m_J| + X_p\, m_I/|m_I|$. The electron gains an energy $+X_e$ when its spin points along the axis and $-X_e$ when it points in the opposite direction, and the proton does the same with $X_p$. This is the same behaviour as a magnetic moment in a magnetic field: from the point of view of the atom, the spin-dependent SME terms act as two tiny additional magnetic fields.
+%, fixed in space, one coupling only to the electron and one only to the proton, and both unrelated to the real trapping field.
+
+In the ground state the two spins are coupled by the hyperfine interaction, and in a magnetic field the eigenstates are the four sublevels $\ket{a}$, $\ket{b}$, $\ket{c}$, $\ket{d}$ of Chapter~\ref{ch:hyperfine}, labelled in order of increasing energy. Two of them, $\ket{d}$ and $\ket{b}$, are pure spin states, with both spins up and both spins down respectively, and their shifts follow directly from the expression above: $X_e + X_p$ and $-(X_e + X_p)$. The other two, $\ket{c}$ and $\ket{a}$, are superpositions of the two configurations with opposite spins, electron up and proton down or vice versa, whose shifts are $+(X_e - X_p)$ and $-(X_e - X_p)$. The shift of a mixed state is the average of these two values, weighted by the probability of each configuration. Altogether, the four sublevels of the 1S state are shifted by \cite{Bluhm_1999}
+
+\begin{align}
+\Delta E_d &\simeq + (X_e + X_p), & \Delta E_c &\simeq + \hat\kappa \, (X_e - X_p), \nonumber \\
+\Delta E_b &\simeq - (X_e + X_p), & \Delta E_a &\simeq - \hat\kappa \, (X_e - X_p),
+\label{eq:SMEshifts}
+\end{align}
+
+where $\hat\kappa = \cos 2\theta_1$ expresses how strongly the states $\ket{c}$ and $\ket{a}$ are mixed, through the mixing angle $\theta_1$ defined by $\tan 2\theta_1 \simeq \SI{51}{\milli\tesla}/B$ \cite{Bluhm_1999}. At zero field $\hat\kappa = 0$: the two configurations enter $\ket{c}$ and $\ket{a}$ with equal weight, their shifts average out, and these two states are not shifted at all. In a strong field $\hat\kappa \to 1$, and $\ket{c}$ and $\ket{a}$ become pure spin states as well; at the \SI{1}{\tesla} field of the experiment $\hat\kappa \simeq 0.999$.
+
+The same structure holds for antihydrogen. The sublevels are labelled in the same way, by their position in the Zeeman diagram, but since the magnetic moment of the positron is parallel to its spin, rather than antiparallel as for the electron, each antihydrogen sublevel has the opposite spin configuration with respect to the hydrogen sublevel with the same label. Combined with the change of sign of some of the coefficients under charge conjugation, the net result is that Eq.~(\ref{eq:SMEshifts}) applies to antihydrogen with $b^e_3 \to -b^e_3$ and $b^p_3 \to -b^p_3$ in Eq.~(\ref{eq:SMEXdef}), while $d^w_{30}$ and $H^w_{12}$ keep their sign \cite{Bluhm_1999} \footnote{This is a consequence of the fact that $m_{j}/|m_{j}|$ or $m_{I}/|m_{I}|$ change sign when considering $e^{-} \rightarrow e^{+}$ and $p^{+} \rightarrow p^{-}$, along with the change of sign of the terms $d^{w}_{30}$ and $H^{w}_{12}$ under Charge conjugation $C$.}. The CPT-odd coefficients $b^w_3$ are thus the ones that can make hydrogen and antihydrogen differ.
+
+The effect on the two measured transitions is obtained by subtracting the shifts of the final and initial states:
+
+\begin{align}
+\delta f_{da} &= \frac{\Delta E_d - \Delta E_a}{h} = \frac{(X_e + X_p) + \hat\kappa\,(X_e - X_p)}{h}, \nonumber \\
+\delta f_{cb} &= \frac{\Delta E_c - \Delta E_b}{h} = \frac{\hat\kappa\,(X_e - X_p) + (X_e + X_p)}{h}.
+\label{eq:SMEfcbfda}
+\end{align}
+
+The two transitions are shifted by exactly the same amount, $[X_e(1+\hat\kappa) + X_p(1-\hat\kappa)]/h$, for any value of the magnetic field and for both hydrogen and antihydrogen, and the shift cancels in the difference $f_{da} - f_{cb}$. 
+%The reason is the same that makes the difference independent of the trapping field (see the energy levels retaining the antiproton Zeeman term at the end of Chapter~\ref{ch:hyperfine}). 
+%At high field both transitions are essentially a flip of the positron spin, one with the antiproton spin in one direction ($\ket{d}\to\ket{a}$) and one with the antiproton spin in the other direction ($\ket{c}\to\ket{b}$). A field acting on the positron changes the energy needed for the flip by the same amount in both cases, and a field acting on the antiproton shifts the initial and final states of each transition almost equally, whatever its direction. Only the hyperfine interaction depends on the relative orientation of the two spins, and makes the positron flip cost a different energy for the two antiproton orientations: this is what the difference $f_{da} - f_{cb}$ measures, and the SME terms considered here, which act on each spin separately, cannot contribute to it. Consistently, $f_{da}-f_{cb}$ coincides with the zero-field $\ket{F=1,m_F=0} \leftrightarrow \ket{F=0,m_F=0}$ hydrogen maser transition, which is shown in \cite{Kostelecky:2015nma} to be insensitive to Lorentz violation for operators of any mass dimension, since only transitions with $\Delta m_F \neq 0$ acquire leading-order shifts. 
+The hydrogen/antihydrogen agreement reported here therefore tests the equality of the magnetic interaction between the two bound particles, including the antiproton finite-size contribution discussed above, but does not constrain at leading order any of the SME coefficients considered in \cite{Bluhm_1999,Kostelecky:2015nma}.
 
 The individual resonances do carry SME information. \fcb and \fda are predominantly a positron spin flip: at \SI{1}{\tesla}, $\hat\kappa \simeq 0.999$, so that $f_{cb}$ and $f_{da}$ shift by $\approx 2X_e/h$, with the antiproton admixture suppressed by $1-\hat\kappa \approx 10^{-3}$. A hydrogen--antihydrogen comparison of either resonance at the same field would therefore isolate the CPT-odd coefficient $b^e_3$ of the electron sector, the CPT-even $d^e_{30}$ and $H^e_{12}$ cancelling in the difference. Exploiting this would require an independent absolute calibration of the field at the location of the atoms; with the 1 ppm accuracy of the ECR technique ($\approx$ \SI{28}{\kilo \hertz} at \SI{1}{\tesla}) the reach on $b^e_3$ would be of order \SI{e-19}{\giga \electronvolt}, several orders of magnitude weaker than the bounds already set on this sector by the comparison of the electron and positron $g$-factors in Penning traps \cite{VanDyck:1987ay}. Despite this, a more promising approach can be constituted by the $c \rightarrow d$ transition, which is mainly an antiproton spin flip. Within the SME framework, it can be shown that hydrogen and antihydrogen would exhibit sensitivity to CPT violating couplings. Specifically, as computed in \cite{Bluhm_1999,Kostelecky:2015nma}, the transition frequency are at first order approximation in $\alpha$
 
@@ -135,9 +214,9 @@ The individual resonances do carry SME information. \fcb and \fda are predominan
 \delta^{\overline{H}}_{c \rightarrow d} &\approx ( + b_{3}^{p} + d_{30}^{p} m_{p} + H_{12}^{p}) / \pi
 \end{align}
 
-The instantaneous difference of the two transition is therefore $\Delta \nu_{c \rightarrow d} = \nu^{H}_{c \rightarrow d} - \nu^{\overline{H}}_{c \rightarrow d} = - 2 b_{3}^{p}/ \pi$. This result is substantial, a future determination of the magnetic-resonance type transition of the $\ket{c} \leftrightarrow \ket{d}$ between two trapped hyperfine sublevels would isolates the antiproton coefficient $b^{p}_{3}$ probing the proton/antiproton sector of the SME, where the tightest existing antimatter constraints come from the BASE measurement of the antiproton magnetic moment \cite{Smorra2017}.  
-At the minimal-SME level this transition probes the same coefficient combination $b^p_3$ already constrained, at the \SI{e-24}{\giga\electronvolt} level, by the BASE comparison of the proton and antiproton magnetic moments \cite{Smorra2017}, so that matching that reach would require an absolute frequency resolution of order \SI{0.1}{\hertz} and hence anti-atom temperatures in the \si{\micro\kelvin} range \cite{Bluhm_1999}. Its interest lies rather in the nonminimal sector, where the bound antiproton momentum $|p|\sim\alpha m_e$ selects combinations inaccessible to Penning-trap experiments \cite{Kostelecky:2015nma}, and in a dedicated search for sidereal variations.
-
+The instantaneous difference of the two transition is therefore $\Delta \nu_{c \rightarrow d} = \nu^{H}_{c \rightarrow d} - \nu^{\overline{H}}_{c \rightarrow d} = - 2 b_{3}^{p}/ \pi$. This result is substantial, a future determination of the magnetic-resonance type transition of the $\ket{c} \leftrightarrow \ket{d}$ between two trapped hyperfine sublevels would isolate the antiproton coefficient $b^{p}_{3}$ probing the proton/antiproton sector of the SME, where the tightest existing antimatter constraints come from the BASE measurement of the antiproton magnetic moment \cite{Smorra2017}.  
+At the minimal-SME level this transition probes the same coefficient combination $b^p_3$ already constrained, at the \SI{e-24}{\giga\electronvolt} level, by the BASE comparison of the proton and antiproton magnetic moments \cite{Smorra2017}, so that matching that reach would require an absolute frequency resolution of order \SI{0.1}{\hertz} and hence anti-atom temperatures in the \si{\micro\kelvin} range \cite{Bluhm_1999}.
+%
 
 
 % In addition, since the laboratory-frame coefficients rotate with the Earth, a time-averaged comparison is only sensitive to their component along the Earth's rotation axis, and a dedicated sidereal-time analysis would be needed to access the remaining components \cite{Kostelecky:2015nma}. A measurement with genuine discovery potential would instead need to target a less-constrained sector.
