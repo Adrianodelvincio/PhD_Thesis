@@ -5,7 +5,7 @@ This chapter describes the statistical and mathematical framework used to analyz
 
 The 2024 dataset consists of two complete spectroscopy campaigns performed at different magnetic-field configurations, together with dedicated auxiliary measurements, including electron cyclotron resonance (ECR) magnetometry and high-statistics calibration samples. These auxiliary datasets play a crucial role in the characterization of the magnetic-field evolution and in the evaluation of systematic uncertainties.
 
-The analysis follows a frequentist approach and is implemented within the \textit{ROOT} and \textit{RooFit} frameworks using a Python-based \textit{PyROOT} analysis package. The model parameters are determined through a maximum-likelihood fit, with numerical minimization performed using the \textit{MINUIT2} optimizer.
+The analysis is implemented within the \textit{ROOT} and \textit{RooFit} frameworks using a Python-based \textit{PyROOT} analysis package. The model parameters are determined through a maximum-likelihood fit, with numerical minimization performed using the \textit{MINUIT2} optimizer.
 
 The first stage of the analysis consists of a simultaneous fit to the frequency distributions associated with the \cb and \da positron spin-flip transitions. An empirical line-shape model is fitted to all repetitions within a given experimental series. While several parameters describing the overall line shape are shared among the repetitions, specific parameters are allowed to differ between the two transitions in order to account for residual differences in their spin-flip dynamics. The outcome of this fit is a set of frequency markers that characterize the onset of each transition.
 
@@ -483,7 +483,7 @@ duration of associated series (h)         & $12$ & $11.75$ & $11.75$\\
 \hline
 \end{tabular}
 }
-\caption{Model float parameters from the high-statistics samples. \label{tab:highstat_floatk}}
+\caption{Model float parameters from the high-statistics samples. $k$, controlling the power law rise, is shared among the three high statistic data-sets while the $\sigma$ controlling the rise is individual for each. The table also contains information about the duration of the associated series (that was \SI{12}{\hour} for the \SI{1.07}{\tesla} and \SI{11.75}{\hour} for the one at \SI{1.03}{\tesla}), the upper row, labeled as ``time from center of associated series (h)", correspond to the interval of time between the start of the high statistic measurement (when the microwave are injected into the trap), and the midpoint of the corresponding eight-repetitions of series. \label{tab:highstat_floatk}}
 \end{table}
 
 The $k$ result of the fit is 5.4, which has been used to evaluate a component of the systematic uncertainty associated with function shape variation. Since those data have been used for this task, they are not included in the main analysis, which relies only on the eight repetitions with less statistical power. 

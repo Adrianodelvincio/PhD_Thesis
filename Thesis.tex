@@ -11,6 +11,7 @@
 \usepackage{mathtools}
 
 \usepackage{amsfonts}
+\usepackage{bm}
 
 \usepackage{amssymb}
 
@@ -18,6 +19,16 @@
 
 \usepackage{graphicx}
 \usepackage{float}
+% float placement: allow larger/more floats on text pages, so that figures and tables stay close to the text that cites them
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+% \FloatBarrier, to stop floats from drifting past a given point when needed
+\usepackage{placeins}
 %\usepackage{arydshln}
 
 \usepackage{rotating}
@@ -25,6 +36,8 @@
 \usepackage{siunitx}
 
 \usepackage{braket}
+
+\usepackage{xspace}
 
 \usepackage{multirow}
 
@@ -49,20 +62,22 @@
 %\newcommand{\contentof}[1]{\textit{#1}}
 \newcommand{\contentof}[1]{ }
 
-\newcommand{\commento}[1]{\textcolor{green}{#1}}
+%\newcommand{\commento}[1]{\textcolor{green}{#1}}
+\newcommand{\commento}[1]{ }
 
 \newcommand{\nullo}[1]{ }
 
-\newcommand{\cstate}[0] { $\ket{c}$ }
-\newcommand{\dstate}[0] { $\ket{d}$ }
-\newcommand{\fcb}[0]{    $f_{cb}$ }
-\newcommand{\fda}[0]{    $f_{da}$ }
-\newcommand{\cb}[0]{     $\ket{c} \rightarrow \ket{b}$ }
-\newcommand{\da}[0]{     $\ket{d} \rightarrow \ket{a}$ }
-\newcommand{\Hbar}[0]{   $\overline{H}$ }
-\newcommand{\likelihood}{$\mathcal{L}$}
-\newcommand{\ALPHA}{ALPHA }
-\newcommand{\AD}{AD}
+% \xspace adds a space after the macro only when it is not followed by punctuation
+\newcommand{\cstate}{$\ket{c}$\xspace}
+\newcommand{\dstate}{$\ket{d}$\xspace}
+\newcommand{\fcb}{$f_{cb}$\xspace}
+\newcommand{\fda}{$f_{da}$\xspace}
+\newcommand{\cb}{$\ket{c} \rightarrow \ket{b}$\xspace}
+\newcommand{\da}{$\ket{d} \rightarrow \ket{a}$\xspace}
+\newcommand{\Hbar}{$\overline{H}$\xspace}
+\newcommand{\likelihood}{$\mathcal{L}$\xspace}
+\newcommand{\ALPHA}{ALPHA\xspace}
+\newcommand{\AD}{AD\xspace}
 
 
 \begin{document}
